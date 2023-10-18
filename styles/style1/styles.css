@@ -1,0 +1,11 @@
+h1{
+    border: 5px solid blue
+}
+div{
+    background-color: aqua;
+    border:5px solid red;
+}
+span{
+    border: 5px dotted blue;
+    background-color: bisque;
+}
