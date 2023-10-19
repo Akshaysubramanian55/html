@@ -6,4 +6,24 @@
 .start{
     background-color: orange;
     color: white;
+    text-align: left;
+    
 }
+.right{
+    background-color: aqua;
+    text-align: center;
+    
+}
+.top{
+    
+    border: 5px solid orange;
+     background-color: orange;
+      
+     display: flex;
+     justify-content: center; 
+     align-items: center;
+}
+     
+      
+      
+
