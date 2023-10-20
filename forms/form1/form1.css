@@ -19,9 +19,7 @@
     border: 5px solid orange;
      background-color: orange;
       
-     display: flex;
-     justify-content: center; 
-     align-items: center;
+     text-align: center;
 }
      
       
