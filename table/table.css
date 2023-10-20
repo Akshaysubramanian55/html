@@ -1,0 +1,5 @@
+table,th,td{
+    border: 5px solid;
+    background-color: white;
+    border-collapse: collapse;
+}

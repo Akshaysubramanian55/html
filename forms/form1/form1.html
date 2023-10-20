@@ -7,42 +7,48 @@
     <link rel="stylesheet" href="form1.css">
 </head>
 <body>
-<form>
+<form action="today.js">
     <div  class="right">
         <h1 class="start">Sign up</h1><br>
         
      <div>
         <label for="firstname">Frst Name :</label>
-     <input type="text"  id="firstname" value="Enter First Name">
+     <input type="text"  id="firstname" placeholder="Enter First Name">
     
      </div><br>
     
     
      <div>
      <label for="lastname">last Name :</label>
-     <input type="text"  id="lastname" value="Enter last Name">
+     <input type="text"  id="lastname" placeholder="Enter last Name">
      </div><br>
      <div>
      <label for="dates">Date Of Birth :</label>
      <select name="dates" id="dates">
         <option>dates</option>
+        <option>1</option>
+        <option>2</option>
      </select>
      <select name="month">
         <option>month</option>
+        <option>january</option>
+        <option>february</option>
 
      </select>
      <select>
         <option>year</option>
+        <option>2001</option>
+        <option>2002</option>
      </select>
      </div><br>
      <div>
    
      <label for="male">Gender :</label>
      
-     <input type="radio" id="male">
+     <input type="radio" id="male" name="ml" value="male1">
      <label for="male">Male</label>
      
-     <input type="radio" id="female">
+     <input type="radio" id="female" name="fl" value="female1">
      <label for="female">Female</label>
     
     
@@ -52,24 +58,27 @@
      <label for="country1">Country :</label>
      <select name="country">
         <option>country</option>
+        <option>india</option>
+        <option>australia</option>
+        <option>portugal</option>
 
      </select>
      </div><br>
      <div>
      <label for="mail">E-Mail :</label>
-     <input type="text" id="mail" value="enter the email">
+     <input type="email" id="mail" placeholder="enter the email">
      </div><br>
      <div>
      <label for="phone">Phone :</label>
-     <input type="text" id="phone" value="Enter the phone number">
+     <input type="text" id="phone" placeholder="Enter the phone number">
      </div><br>
      <div>
      <label for="password">Password :</label>
-     <input type="text" id="password" >
+     <input type="password" id="password" >
      </div><br>
      <div>
      <label for="confirm">Confirm Password :</label>
-     <input type="text" id="confirm">
+     <input type="password" id="confirm">
       </div><br>
      <div>
      <label for="agree"></label>
