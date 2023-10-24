@@ -48,12 +48,14 @@ p{
     width: 100px;
     height: 100px;
     background-color: rgba(100, 199, 120, 0.5);
+    overflow: hidden;
 }
 .yest{
     border: 5px solid blue;
     width: 100px;
     height: 100px;
     background-color: rgba(165, 168, 180, 0.5);
+    overflow: hidden;
     
 }
 footer{
@@ -61,6 +63,7 @@ footer{
     text-align: center;
     color: white;
     background-color: #0f1111;
+    overflow: hidden;
 }
 
 
