@@ -1,8 +1,17 @@
-*{
-    margin: 0;
-    padding: 0px;
-    box-sizing: border-box;
+.background {
+    position: fixed;
+    top: 10px;
+    right: 0;
+    width: 60%;
+    height: 70%;
+    background-image: url(/html/image/imges.jpg); 
+    background-size:contain;
+    z-index: -2;
+    
 }
-.container{
-    height: ;
+
+.p1{
+    color: aqua;
+    
+    z-index: -1;
 }
