@@ -4,14 +4,13 @@
     right: 0;
     width: 60%;
     height: 70%;
-    background-image: url(/html/image/imges.jpg); 
+    background-image: url("/html/image/imges.jpg"); 
     background-size:contain;
-    z-index: -2;
+    z-index: -1;
     
 }
 
 .p1{
     color: aqua;
     
-    z-index: -1;
 }
