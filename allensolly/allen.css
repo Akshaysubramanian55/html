@@ -4,75 +4,460 @@
     box-sizing: border-box;
 }
 nav{
-    justify-content: space-between;
+    display: flex;
+    justify-content:space-between;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    height: 60px;
+}
+.left-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
-.container{
-    width: 100%;
-    height: 80px;
-   /* margin: 10px 10px 10 10px;
-    border: 3px solid red;*/
-    background-color: rgba(0,0, 0, 1);
+.left-section select{
+    border: 0;
+    background: none;
+    padding: 0px;
+    margin: 0px;
+    color: white;
 }
-.navigator{
-    width: 100%;
-    height: 70px;
+.left-section img,select{
+    margin: 0 8px 0 8px;
+}
+.right-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-section .stores, .login, .contact,  .heart{
+    padding: 0 5px 0 5px;
+    border-right: 2px solid white;
+}
+.stores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav2{
     background-color: white;
-}
-img.one{
-    margin-top: 5px;
-    margin-left: 5px;
-    height: 60px;
-    width: 90px;
-   
-    
-}
-img.two{
-    margin-top: 15px;
-    height: 40px;
-    width: 50px;
-}
-img.three{
-    margin-left: 40px;
-    height: 60px;
-    
-}
-img.four{
-    width: 100%;
-    height: 100%;
+    position: sticky;
+    top: 0px;
 }
 ul{
     list-style-type: none;
-    color: white;
-    
-}
-li{
-     display: inline; 
-       
-}
-select{
-    margin-right: 50%;
-}
-.id1{
-    margin-left: 60px;
-}
-.id3{
-    color: white;
-    text-decoration: none;
-    
-}
-.div2{
-    justify-content: center;
-   align-content: center;
-   text-decoration: none;
-    margin-right: 80px;
-    margin-top: 2px;
-}
-.sections{
     display: flex;
-    justify-content:space-around
+    margin-left: 50px;
+    align-items: center;
+    text-decoration: none;
+}
+.allensollylogo{
+    margin-right: 35px;
+}
+.men, .women, .boys, .girls, .arrival , .sales{
+    margin-right: 30px ;
+    margin-left: 40px;
+}
+.sales{
+    margin-right:100px;
+}
+.list a{
+    text-decoration: none;
+    color: blue;
+}
+ .box1{
+    display: flex;
+    border-bottom: 2px solid blue;
+}
+.move {
+    margin-right: 10px;
+}
+.image{
+    width: 100%;
+    height: 100%;
+}
+.navigator{
+    margin-top: 10px;
+    display:flex;
+    justify-content:space-evenly
+ }
+ .navigator1, .navigator2, .navigator3, .navigator4, .navigator5, .navigator6{
+    font-size: 18px;
+    font-family: gotham;
+    font-weight: 500;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: center;
+    color: #0e3051;
+    padding: 11%;
+    margin-top: 20px;
+ }
+ .bar{
+    border: 2px solid ;
+    background-color: orange;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+ .rightside{
+    margin-top: 20px;
+    margin-right: 250px;
+    justify-content:start
+ }
+.centre{
+    margin-top: 20px;
+    margin-right:150px ;
     
+    
+}
+.left{margin-right: 100px;
+    width: 200px;
+    height: 100px;
+    justify-content: right;
+}
+.divider{
+    margin-top: 50px;
+   
+}
+.dot{
+   text-align: center;
+   color: navy;
+}
+.dot1{
+    margin-top: 25px;
+}
+.dot2{
+    margin-top: 5px;
+}
+.style{
+    display: flex;
+    justify-content: center;
+    color: navy;
+}
+.style1{
+    margin-top: 40px;
+    margin-right:55px;
+    border-bottom: 2px solid red;
+}
+.style2{
+    margin-top: 40px;
+    margin-right:55px;
 }
 .pics{
-    align-content: space-evenly;
+    margin-top: 20px;
+    margin-left: 250px;
 }
+.shirts{
+    border: 2px solid;
+    margin-top: 25px;
+    background-color: #0e3051;
+}
+.shirts-subclass {
+  text-align: center;
+  color:orange;
+}
+
+.categories{
+    display: flex;
+    justify-content: center;
+}
+.categories1, .categories2, .categories3, .categories4, .categories5{
+    color: white;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.categories1{
+    border-bottom: 2px solid orange;
+}
+.styless{
+    display: flex;
+    margin-top: 20px;
+}
+.catepics{
+    margin-left: 50px;
+}
+.catepics1, .catepics2, .categories3{
+    
+    margin-right:25px ;
+}
+.fonts{
+    position: relative;
+    color: white;
+}
+.fonts1{
+    display: flex;
+    text-align: left; 
+}
+footer{
+    width: 100%;
+    height: 45px;
+    background-color: white;
+}
+
+.fonts h3{
+    margin-right: 15px;
+}
+.deals{
+    
+    border: 1px solid;
+    background-color: #0e3051;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.deals-1{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.head{
+    margin-top: 50px;
+    margin-left: 20px;
+    display: flex;
+    color: goldenrod;
+    
+}
+.textdeal{
+    border: 1px solid;
+    background-color: white;
+    width:250px;
+    position: relative;
+    bottom:10px;
+    left:10px
+}
+.tata{
+    
+    background-color: blue;
+    width:312px;
+    position: relative;
+    bottom:10px; 
+}
+.tata1{
+    margin-bottom: 50px;
+    background-color: green;
+    width:312px;
+    position: relative;
+    bottom:10px;
+}
+.tata2{
+    
+    background-color: yellow;
+    width:312px;
+    position: relative;
+    bottom:10px;
+}
+.tata3{
+    background-color: violet;
+    width:312px;
+    position: relative;
+    bottom:10px;
+}
+.hept{
+    display:flex;
+    margin-left: 50px;
+}
+.oct{
+    margin-left: 20px;
+}
+.hept, .oct{
+    margin-top: 10px;
+}
+.none{
+    display: flex;
+    margin: 1px solid white;
+    margin-top: 50px;
+    
+}
+.none-1{
+    margin-top: 0px;
+    
+    background-color: #0e3051;
+    display: flex;
+    color: #fff;
+    font-family: Gotham;
+    font-size: 21px;
+    font-weight: 700;
+    align-items: center;
+    width:100%;
+    
+}
+.none-1 h4{
+   flex-direction: column;
+   margin-left: 50px;
+   text-align: center;
+   margin-left: 2px;
+   border-bottom: 1px solid orange;
+}
+.none-1 img{
+    margin-left: 40px;
+    margin-left: 20px;
+}
+.both{
+    width:100%;
+}
+.noob-1 img{
+    margin-left: 50px;
+    height: 69%;
+    width: 90%;
+}
+.fontz{
+    
+    color: black;
+    position: relative;
+    margin-left: 50px;
+}
+.fontz1 h3{
+    margin-right: 15px;
+}
+.fontz1{
+    
+    display: flex;
+    text-align: center;
+    margin-left: 10px;
+}
+.divider1{
+    margin-top: 10px;
+}
+.lookbook{
+    margin-top: 50px;
+    text-align: center;
+    color: #0e3051;
+}
+.centre1{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    border: 3px solid white; 
+  }
+  button{
+    color: black;
+    background-color: orange;
+  }
+  .boxxx{
+    border: 2px solid gold;
+    position: relative;
+    height: 500px;
+    background-image: url(/html/image/allensollyimages/pexels-photo-592941.jpeg);
+    
+  }
+  .boxx1{
+    display: flex;
+    
+  }
+  .boxx{
+    
+   position: absolute;
+    top:80px;
+    right: 60px;
+    border: 2px solid gold;
+    width: 400px;
+    height: 200px;
+    background-color: gold;
+    text-align: center;
+    
+  }
+  .ash{
+    color: black;
+     background-color: #0e30;
+  }
+  .suv{
+    margin-top: 30px;
+    border: 2px solid;
+    background-color: #0e3051;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+  }
+  .tag{
+    color: yellow;
+  }
+  .tag span{
+    color: white;
+  }
+  .giftlogo{
+    margin-right: 30px;
+  }
+  .tagbutton{
+    margin-left: 20px;
+  }
+  .ittachi{
+    margin-top: 50px;
+    background-color: gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .locator{
+    margin-right: 20px;
+  }
+  .abcd{
+    border-bottom: 2px solid black;
+  }
+  .speak h1{
+    width:600px;
+  }
+  .abc{
+    margin-left: 50px;
+  }
+ 
+  
+  .luffy{
+    height: 70px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .luffy button{
+    height: 80px;
+    width: 500px;
+    border-radius: 3%;
+  }.mode{
+    margin-top: 50px;
+    display: flex;
+   justify-content: space-evenly;
+  }
+  .climax{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+  }
+  .climax ul{
+    
+    flex-direction: column;
+    margin-left: 10px;
+  }
+  .climax-list1{
+    align-content: left;
+  }
+ /* .climalist2{
+    
+  }*/
+  .join{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+  }
+  .join img{
+    margin-left: 100px;
+  }
+  .multi{
+    border-bottom: 2px solid;
+  }
+  
