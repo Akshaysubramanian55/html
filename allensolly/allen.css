@@ -57,6 +57,8 @@ nav{
     position: sticky;
     top: 0px;
 }
+
+
 ul{
     list-style-type: none;
     display: flex;
@@ -69,7 +71,7 @@ ul{
 }
 .men, .women, .boys, .girls, .arrival , .sales{
     margin-right: 30px ;
-    margin-left: 40px;
+    margin-left: 50px;
 }
 .sales{
     margin-right:60px;
@@ -82,11 +84,12 @@ ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 150px;
+    margin-left: 50px;
     margin-top: 10px;
     border: 2px solid gold;
     background-color: gold;
     border-radius: 10px;
+    padding: 10px;
 }
  .box1{
     display: flex;
@@ -334,7 +337,7 @@ footer{
 }
 .noob-1 img{
     margin-left: 50px;
-    height: 69%;
+    height: 59%;
     width: 90%;
 }
 .fontz{
@@ -377,11 +380,15 @@ footer{
     border: 2px solid gold;
     position: relative;
     height: 500px;
-    background-image: url(/html/image/allensollyimages/pexels-photo-592941.jpeg);
+    /* background-image: url('../html/image/allensollyimages/pexels-photo-592941.jpeg'); */
+    background: url('../image/allensollyimages/pexels-photo-592941.jpeg') no-repeat center center/cover;
+
     
   }
   .boxx1{
+    margin-left: 200px;
     display: flex;
+    size: 30px;
     
   }
   .boxx{
@@ -397,7 +404,9 @@ footer{
     
   }
   .ash{
-    color: black;
+    margin-top: 20px;
+    height: 30px;
+    color:gold;
      background-color: #0e30;
   }
   .suv{
