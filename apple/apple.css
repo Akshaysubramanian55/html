@@ -9,15 +9,22 @@ nav{
     align-items: center;
     background-color: black;
 }
+
+
 nav ul {
     display: flex;
     list-style-type: none;
     justify-content: center;
     align-items: center;
-   
+    
+    
+}
+nav li{
+    font-size: 12px;
 }
 .nav-bar{
     display: flex;
+    
     
 }
 nav a{
@@ -29,4 +36,69 @@ nav a{
     margin-left: 30px;
     margin-right: 30px;
 }
+.apple-pics{
+    position: relative;
+    text-align: center;
+}
+.titanium{
+    position: absolute;
+    top: 30px;
+    left: 40%;
+    color: white;
+}
 
+.buyy{
+    display: flex;
+    position: absolute;
+    top:150px;
+    left:40%;
+    justify-content: center;
+    align-items: center;
+}
+.buy{
+     font-size: 21px;
+     margin-top: .65em; 
+     font-weight: 400;
+     justify-content: center;
+    align-items: center;
+}
+.buy a{
+     text-decoration: none;
+     margin-left: 40px;
+}
+
+.buy1{
+      margin-left: 80px;
+    }
+ .apple-container{
+        position: relative;
+        text-align: center;
+    }
+.titanium1{
+        position: absolute;
+        top: 30px;
+        left: 40%;
+        color: black;
+}
+.bie{
+    display: flex;
+    position: absolute;
+    top:150px;
+    left:40%;
+    justify-content: center;
+    align-items: center;
+}
+.biee{
+    font-size: 21px;
+    margin-top: .65em;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+}
+.bie a{
+    text-decoration: none;
+    margin-left: 40px;
+}
+.bie1{
+    margin-left: 80px;
+}
