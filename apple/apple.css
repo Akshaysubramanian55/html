@@ -144,5 +144,66 @@ nav a{
     top:1640px;
     left:40%;
 }
-
- 
+.imac{
+        
+    height: 700px;
+    background-image: url('../apple/appleimages/imac.jpg') 
+    margin-top: 2px;
+}
+.titanium3{
+    
+        top: 2150px;
+        left: 38%;
+        color: black;
+}
+.buyy3{
+    display: flex;
+    position: absolute;
+    top:2275px;
+    
+    justify-content: center;
+    align-items: center;
+}
+.buy{
+    font-size: 21px;
+    margin-top: .65em; 
+    font-weight: 400;
+    justify-content: center;
+   align-items: center;
+}
+.buy a{
+    text-decoration: none;
+    margin-left: 60px;
+}
+.titanium4{
+    position: absolute;
+        top: 2850px;
+        left: 38%;
+        color:white;
+}
+.buyy4{
+    display: flex;
+    position: absolute;
+    top:2950px;
+    left:40%;
+    left:38%;
+    justify-content: center;
+    align-items: center;
+}
+.buy{
+    font-size: 21px;
+    margin-top: .65em; 
+    font-weight: 400;
+    justify-content: center;
+   align-items: center;
+}
+.buy a{
+    text-decoration: none;
+    margin-left: 60px;
+}
+.airPods{
+        
+    height: 700px;
+    background: url('../apple/appleimages/airpod.jpg') no-repeat center center/cover;
+    margin-top: 2px;
+}
