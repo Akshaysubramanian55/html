@@ -136,7 +136,7 @@ nav a{
 }
 .buy a{
     text-decoration: none;
-    margin-left: 60px;
+    margin-left: 25px;
 }
 .buyy2{
     display: flex;
@@ -144,66 +144,69 @@ nav a{
     top:1640px;
     left:40%;
 }
-.imac{
-        
-    height: 700px;
-    background-image: url('../apple/appleimages/imac.jpg') 
-    margin-top: 2px;
-}
-.titanium3{
-    
-        top: 2150px;
-        left: 38%;
-        color: black;
+.test{
+    position: relative;
+    bottom: 450px;
 }
 .buyy3{
     display: flex;
-    position: absolute;
-    top:2275px;
-    
-    justify-content: center;
-    align-items: center;
-}
-.buy{
-    font-size: 21px;
-    margin-top: .65em; 
-    font-weight: 400;
-    justify-content: center;
-   align-items: center;
-}
-.buy a{
-    text-decoration: none;
-    margin-left: 60px;
-}
-.titanium4{
-    position: absolute;
-        top: 2850px;
-        left: 38%;
-        color:white;
+    position: relative;
+    bottom: 430px;
 }
 .buyy4{
     display: flex;
-    position: absolute;
-    top:2950px;
-    left:40%;
-    left:38%;
-    justify-content: center;
+    position: relative;
+    bottom: 430px;
+}
+.itemss{
+    display: flex;
+}
+.test1{
+    color: white;
+    position: relative;
+    bottom: 500px;
+}
+.buyy5{
+    display: flex;
+    position: relative;
+    bottom: 500px;
+}
+.buyy5 a{
+    margin-left: 100px;
+}
+.buyy6{
+    display: flex;
+    position: relative;
+    bottom: 500px;
+}
+.buyy6 a{
+    margin-left: 150px;
+}
+.watch{
+    display: flex;
+    justify-content: left;
     align-items: center;
+    margin-left: 20px;
 }
-.buy{
-    font-size: 21px;
-    margin-top: .65em; 
-    font-weight: 400;
-    justify-content: center;
-   align-items: center;
-}
-.buy a{
-    text-decoration: none;
+.imac{
     margin-left: 60px;
 }
-.airPods{
-        
-    height: 700px;
-    background: url('../apple/appleimages/airpod.jpg') no-repeat center center/cover;
-    margin-top: 2px;
+.test2{
+    color: white;
+    position: relative;
+    bottom: 500px;
+    margin-left: 20px;
+}
+.itme{
+    display: flex;
+}
+.airpod1{
+    margin-left: 20px;
+}
+.airpod{
+    margin-left: 60px;
+}
+.killers{
+    margin-left: 90px;
+   margin-bottom: 630px;
 }
