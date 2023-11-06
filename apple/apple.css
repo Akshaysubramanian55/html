@@ -160,6 +160,7 @@ nav a{
 }
 .itemss{
     display: flex;
+    margin-left: 160px;
 }
 .test1{
     color: white;
@@ -170,6 +171,7 @@ nav a{
     display: flex;
     position: relative;
     bottom: 500px;
+   
 }
 .buyy5 a{
     margin-left: 100px;
@@ -199,6 +201,7 @@ nav a{
 }
 .itme{
     display: flex;
+    margin-left: 160px;
 }
 .airpod1{
     margin-left: 20px;
@@ -208,5 +211,14 @@ nav a{
 }
 .killers{
     margin-left: 90px;
-   margin-bottom: 630px;
+   margin-top: 0px;
+}
+.para{
+    margin-top: 10px;
+    height: 300px;
+    width: 60%;
+    margin-left: 300px;
+    letter-spacing: 2px;
+    line-height: 20px;
+    border-bottom: 5px solid wheat;
 }

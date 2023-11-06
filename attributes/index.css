@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: auto;
+    padding: 1rem;
+    border: 2px solid red;
+}
+input[type='text']{
+  color: aqua;
+   border: 2px solid violet;
+}
+input[type='email']{
+    color: darkgreen;
+    border: 2px solid red;
+}
+a{
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+}
+a[href]{
+    background-color: green;
+}
+a[target='_blank']{
+    background-color: blue;
+}
+ul{
+    border: 2pxsolid red;
+    text-align: center;
+    padding: 1rem;
+    list-style: none;
+}
+ul li {
+    margin: 1rem;
+}
+li:nth-child(odd){
+    background-color: brown;
+}
+/* n=1,2,3.....*/
+li:nth-child(2n+0){
+    background-color: aqua;
+}
+li:nth-child(3n+2){
+    background-color:chartreuse;
+}
