@@ -220,5 +220,18 @@ nav a{
     margin-left: 300px;
     letter-spacing: 2px;
     line-height: 20px;
-    border-bottom: 5px solid wheat;
+    
+}
+.foot{
+  margin-top:200px;
+  border-top: 2px solid red;
+}
+.last{
+    display: flex;
+    margin-left: 300px;
+    margin-top: 30px;
+    
+}
+.last ul{
+    list-style-type: none;
 }
