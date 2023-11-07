@@ -11,8 +11,6 @@ nav{
     position: sticky;
     top: 0px;
 }
-
-
 nav ul {
     display: flex;
     list-style-type: none;
@@ -225,6 +223,8 @@ nav a{
 .foot{
   margin-top:200px;
   border-top: 2px solid red;
+  word-spacing: 5px;
+  
 }
 .last{
     display: flex;
@@ -234,4 +234,36 @@ nav a{
 }
 .last ul{
     list-style-type: none;
+}
+.more{
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-bottom: 2px;
+    border-bottom: 2px solid wheat;
+}
+
+.account{
+    margin-left: 50px;
+}
+.account li:nth-child(5) {
+    margin-top: 10px;
+}
+.account1{
+    margin-left: 50px;
+}
+.account2{
+    margin-left: 50px;
+}
+/*n=1,2,3*/
+.account2 li:nth-child(4n){
+    margin-top:10px
+}
+.account3 {
+    margin-left: 50px;
+}
+.account3 li:nth-child(9){
+    margin-top: 10px;
+}
+.last li:nth-child(12){
+    margin-top: 10px;
 }
