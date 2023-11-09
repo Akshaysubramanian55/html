@@ -220,9 +220,13 @@ nav a{
     line-height: 20px;
     
 }
+.paraa p{
+    
+    border-bottom: 2px solid wheat;
+}
 .foot{
-  margin-top:200px;
-  border-top: 2px solid red;
+  margin-top:50px;
+  
   word-spacing: 5px;
   
 }
@@ -239,7 +243,7 @@ nav a{
     margin-top: 20px;
     margin-left: 300px;
     margin-bottom: 2px;
-    border-bottom: 2px solid wheat;
+    border-bottom: 2px solid black;
 }
 
 .account{
@@ -266,4 +270,24 @@ nav a{
 }
 .last li:nth-child(12){
     margin-top: 10px;
+}
+.copyright1{
+    display: flex;
+   margin-left: 300px;
+  
+}
+.copyright1 ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-right: 50px;
+    
+}
+.copyright1 ul li{
+    margin-left: 50px;
+    border-right: 2px solid black;
+    margin-right: 5px;
+}
+.usa{
+    margin-left: 10px;
 }
