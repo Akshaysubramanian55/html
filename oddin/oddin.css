@@ -22,6 +22,7 @@
     list-style-type: none;
     justify-content: center;
     align-items: center;
+   
 }
 .right-section{
     margin-right: 550px;
@@ -42,4 +43,32 @@
         width: 60px;
         height: 60px;
     }
+}
+.started{
+    color: white;
+    background-color: green;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.web-develop{
+    height: 400px;
+    width: 100%;  
+}
+.web1{
+    padding-top: 150px;
+    font-size: 3.75rem;
+    margin: auto;
+    justify-content:center ;
+    text-align: center;
+    
+}
+.full{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+.circulam button{
+    height: 50px;
+    margin-left: 45%;
 }
