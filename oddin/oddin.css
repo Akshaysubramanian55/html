@@ -44,6 +44,11 @@
         height: 60px;
     }
 }
+
+@media only screen and (max-width:700px){
+    .right-section label{
+        display: none;}
+    }
 .started{
     color: white;
     background-color: green;
@@ -71,4 +76,45 @@
 .circulam button{
     height: 50px;
     margin-left: 45%;
+}
+@media only screen and (max-width:900px){
+    .circulam button{
+        margin-top: 325px;
+    }
+}
+@media only screen and(max-width:250px){
+    .circulam button{
+        margin-top: 1125px;
+    }
+}
+@media only screen and (max-width:250px){
+  .image img{
+    margin-top: 5px;
+  }  
+}
+.works{
+    height: 300px;
+    width: 100%; 
+}
+.works1{
+    padding-top: 100px;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+.works1 h2{
+    font-size: 1.85rem;
+    font-weight: 500;
+}
+.works1 p{
+    font-size: 1.125rem;
+    margin-top: 10px;
+}
+.connection{
+    display: flex;
+   margin-left: 30%;
+   margin-top: 90px;
+}
+.connection img {
+    margin-right: 200px;
 }
