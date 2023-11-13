@@ -112,9 +112,29 @@
 }
 .connection{
     display: flex;
-   margin-left: 30%;
    margin-top: 90px;
+  margin-left: 100px;
 }
-.connection img {
-    margin-right: 200px;
+
+.connection1{
+    margin-left: 150px;
+   
+    margin-top: 20px;
+    text-align: center;
+    
+}
+.connection2 {
+    margin-left: 100px;
+    
+     text-align: center;
+}
+.connection3{
+    margin-left: 100px;
+    
+    text-align: center;
+}
+@media only screen and (max-width:650px){
+    .connection {
+        flex-direction: column;
+    }
 }
