@@ -32,12 +32,21 @@
     align-items: center;
 }
 .left-section ul li{
-    margin-left: 20px;
+    margin-left: 10px;
+}
+.menu{
+    display: flex;
+}
+.menupic{
+    display: none;
 }
 @media only screen and (max-width:1000px){
     
-    .left-section{
+    .left-section ul li,.started,.bright{
         display: none;
+    }
+    .menupic{
+        display: block;
     }
     .right-section img,label{
         width: 60px;
@@ -156,7 +165,7 @@
 }
 .zoro{
     display: flex;
-    
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     
@@ -186,6 +195,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+    flex-wrap: wrap;
     
 }
 .advanced img{
@@ -210,8 +220,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-}
-.associate{
+    flex-wrap: wrap;
     margin-top: 50px;
     text-align: center;
 }
@@ -223,14 +232,29 @@
     background-color: white;
 }
 
-@media only screen and (max-width:650px){
+@media only screen and (max-width:950px){
     .advanced{
-        flex-direction: column;
+      flex-wrap: wrap;
     }
     .associate{
-        flex-direction: column;
+        flex-wrap: wrap;
     }
     .zoro{
-        flex-direction: column;
+        flex-wrap: wrap;
     }
+}
+.explore{
+    margin-top: 100px;
+    margin-left: 45%;
+}
+.explore button{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80px;
+    width: 200px;
+}
+.stories{
+    text-align: center;
+    padding-top: 100px;
 }
