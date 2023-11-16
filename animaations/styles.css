@@ -141,4 +141,12 @@
 }
 .box4:hover{
     transform: rotate(45deg);
+    transform: rotate(-45deg);
+    transform: skew(40deg);
+    transform: skew(-40deg);
+    transform: scale(2);
+    transform: scale(-2);
+    transform: translateX(125px);
+    transform: translateY(125px);
+    transform: translate(125px,125px);
 }
