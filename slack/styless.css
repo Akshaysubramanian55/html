@@ -3,3 +3,35 @@
     padding: 0px;
     box-sizing: border-box;
 }
+.section{
+    background-color:  #52064D;;
+}
+.text{
+    text-align: center;
+    margin-top: 20px;
+}
+.imagess {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+.imagess img{
+    padding: 20px;
+}
+
+@media screen and (max-width:1000px){
+
+    .imagess{
+      flex-wrap: wrap;
+    }
+    
+}
+@media screen and (max-width:1500px){
+
+    #navbarSupportedContent ul{
+      display: none;
+    }
+    
+}
+
