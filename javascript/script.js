@@ -89,3 +89,81 @@ console.log("window.fruit: ",window.fruit);
  //const country; missing initializer in const declaration
 }
 //console.log("place from outside: ",place); error place not defined
+
+
+{
+    let str ="Hello World";
+    let str2="haiiii"
+
+    let length=str.length;
+    console.log("length = :",length);
+
+    let toUpperCase =str.toUpperCase();
+    console.log("upperCase: ",toUpperCase);
+
+    let toLowerCase =str.toLowerCase();
+    console.log("LowerCase: ",toLowerCase);
+
+    let length1=str.toUpperCase().length;
+    console.log("length: ",length1);
+
+    let length2=str.toLowerCase().length;
+    console.log("length: ",length2);
+
+    let trimmedstring=str.trim();
+    console.log("trimmedstring : ",trimmedstring);
+    let trimmedStringLength=trimmedstring.length;
+    console.log("length of trimmed string : ",trimmedStringLength);
+
+
+    let lefttrim=str.trimStart();
+    console.log("trimmed left : ",lefttrim);
+    let trimleftlength=lefttrim.length;
+    console.log("trimleftlength : ",trimleftlength);
+
+
+    let righttrim=str.trimEnd();
+    console.log("trimmed right : ",righttrim);
+    let trimrightlength=righttrim.length;
+    console.log("trimrightlength : ",trimrightlength);
+
+    let substring=str.substring(0,3);
+    console.log("substring : ",substring);
+
+    let replacedString= str.replace("Hello","Hai");
+    console.log("replacedstring : ",replacedString);
+
+
+    let isStartsWith=str.startsWith("Hello");
+    console.log("startwith : ",isStartsWith)
+
+    let isEndsWith=str.endsWith("Hello");
+    console.log("endwith : ",isEndsWith)
+
+    let splitstring=str.split(',');//converts string to array
+    console.log("splitstring : ",splitstring);
+
+    let joinedarray=splitstring.join(' '); //converts array to string
+    console.log("joinedstring : ",joinedarray);
+
+    let slicedstring=str.slice(3,8);
+    console.log("slicedstring : ",slicedstring);
+
+    let replacedallstring=str.replaceAll("o","z");
+    console.log("replacedallstring : ",replacedallstring);
+
+    let concatstring=str.concat(" ",str2);
+    console.log("concatstring : ",concatstring);
+
+    let padstart=str.padStart(15,"h");
+    console.log("padstart : ",padstart);
+
+    let padEnd=str.padEnd(15,"h");
+    console.log("padsEnd: ",padEnd);
+
+    let charAtstring=str.charAt(2);
+    console.log("charAt 0: ",charAtstring);
+
+    let charcodeAtstring=str.charCodeAt(5);
+    console.log("charcodeAt 0: ",charcodeAtstring);
+}
