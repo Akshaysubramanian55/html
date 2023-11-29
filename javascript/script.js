@@ -167,3 +167,91 @@ console.log("window.fruit: ",window.fruit);
     let charcodeAtstring=str.charCodeAt(5);
     console.log("charcodeAt 0: ",charcodeAtstring);
 }
+ //array
+{
+    let arr2=[10,20,"mango",30,40,[1,"a",3]];
+    console.log("legth of arr: ",arr2.length);
+
+
+    let arr1=new Array(10,23,12,456);
+    console.log("arr1:",arr1);
+
+    let arr=[10,20,30,40,50,60];
+    console.log("arr[2]",arr[2]);
+
+    console.log("index of 40",arr.indexOf(40));
+
+    arr.push("End");//add element to end of array
+    console.log("push:",arr);
+
+    arr.unshift("start");//add element to start of array
+    console.log("unshift: ",arr);
+
+    arr.pop();//remove element from end of array
+    console.log("pop: ",arr);
+
+    arr.shift();//remove element from start of array
+    console.log("shift: ",arr);
+
+    arr.splice(2,2);//arr.splice(start index,n.o of elements to be spliced)
+    console.log("splice :",arr);
+
+    arr.splice(3,0,55); // add 55 to the third index
+    console.log("splice: ",arr);
+
+    arr[1]=100;//add element to the array at specified index
+    console.log("arr[]:",arr);
+}
+ //objects
+{
+ let obj={
+    firstname:"john",
+    lastname:"terry",
+    age:42,
+    american:false,
+    marks:[1010,80,90],
+    address :{
+        state: "kerala",
+        district:"ernakulam",
+    }
+ }
+     console.log("obj: ",obj);
+
+     console.log("firstname: ",obj.firstname);
+     console.log("american: ",obj.american);
+
+     obj.firstname="dwane";
+     console.log("obj: ",obj);
+
+     obj.email="dwane@gmail.com";
+     console.log("obj: ",obj);
+
+     obj.phone="1234567890";
+     console.log("obj: ",obj);
+
+
+     //JSON string
+
+     let json_str=JSON.stringify(obj);//converts js object to JSON string
+     console.log("json_str:",json_str);
+
+     json_str.firstname//not possible as it is a string
+
+     //JSON string format
+
+     let json_str_format=`{
+        "firstname":"john",
+        "lastname":"terry",
+        "age":42,
+        "american":false,
+        "marks":[1010,80,90],
+        "address" :{
+            "state": "kerala",
+            "district":"ernakulam",
+        }
+     }`;
+
+     let json_to_obj=JSON.parse(json_str);
+     console.log("json_to_obj:",json_to_obj);
+}
+
