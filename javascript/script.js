@@ -255,3 +255,74 @@ console.log("window.fruit: ",window.fruit);
      console.log("json_to_obj:",json_to_obj);
 }
 
+
+{
+    let a=20;
+    if (a==10){
+        console.log("succeed");
+    }else if(a==15){
+        console.log("processing");
+    }else if(a==20){
+        console.log("completed");
+    }
+    else{
+        console.log("failed");
+    }
+}
+ {
+    let num1=10;
+     
+    let postIncNum=num1++;
+    console.log("postIncNum : ",postIncNum);
+
+    num2=10;
+     let preIncNum=++num2;
+     console.log("preIncNum : ",preIncNum);
+
+    num3=10;
+    let preDecNum=--num3;
+    console.log("preDecNum : ",preDecNum);
+
+    num4=10;
+    let postDecNum=num4--;
+    console.log("postDecNum : ",postDecNum);
+
+  num5=10;
+  num6= 10
+
+  if(num5==num6){
+    console.log("values are equal");
+  }
+  if (num5 ===num6){
+    console.log("values and datatypes are equal")
+  }
+  if(num6 !=11){
+    console.log("not equal t0 11")
+  }
+ }
+
+ let day=5;
+
+ switch(day){
+    case 1:
+        console.log("monday");
+        break;
+    case 2:
+        console.log("Tuesday");
+        break;
+    case 3:
+        console.log("Wednesday");
+        break;
+    case 4:
+        console.log("Thursday");
+        break;
+    case 5:
+        console.log("Friday");
+        break;
+    case 6:
+        console.log("Saturday");
+        break;
+    case 7:
+        console.log("Sunday");
+        brreak;
+ }
