@@ -326,3 +326,124 @@ console.log("window.fruit: ",window.fruit);
         console.log("Sunday");
         brreak;
  }
+
+ //loops 
+
+
+ //for loop
+ {
+    for(let i=0;i<10;i++){
+        console.log("Hello World");
+      
+    }
+
+    for(let i=1;i<=10;i++){
+
+        if(i==3){
+            continue;
+        }
+
+        if(i==8){
+            break;
+        }
+        console.log(i);
+    }
+ }
+ //while loop
+ {
+    let j=0;
+    while(j<10){
+        console.log("Haii");
+        j++;
+    }
+ }
+ //do while loop
+  {
+    let k=11;
+    do{
+        console.log("Welcome");
+       k++;
+    }while(k<10);
+ }
+{
+    let product=1;
+    for(i=1;i<=5;i++){
+        product=product*i;
+    }
+    console.log("product : ",product);
+
+    {
+        let fact=1;
+        for(l=1;l<=5;l++){
+            fact1=fact*l;
+        }
+        console.log("factorial- 1: ",fact1);
+    }
+    
+}
+{
+    let sum=0;
+    for(i=0;i<=10;i++){
+        sum=sum+i;
+    }
+    console.log("sum : ",sum);
+}
+{
+    let fact=1;
+    let num=5;
+    for(i=num;i>0;i--){
+        fact=fact*i;
+    }
+    console.log("factorial : ",fact);
+}
+{
+    let n1=0;
+    let n2=1;
+    let n3=0;
+    
+    console.log(n1,n2);
+   for (let i=0;i<10;i++){
+    n3=n1+n2;
+    console.log(n3);
+    n1=n2;
+    n2=n3;
+    
+   }
+}
+{
+    console.log("fibinocci series");
+  let sum1=0;
+  let a=0;
+  let b=1;
+  let limit=5;
+  let i=0;
+   while(i<=limit){
+    sum1=sum1+a;
+    console.log(sum1);
+    a=b;
+    b=sum1;
+    i++;
+   }  
+
+}
+
+{
+     console.log("sum")
+     sum1=0;
+     sum2=0
+    for (let i=0;i<=50;i++){
+        if(i%2==0){
+            sum1=sum1+i;
+        }
+        
+        if(i%2==1){
+            sum2=sum2+i;
+        }
+        
+    }
+    console.log(sum1);
+    console.log(sum2);
+}
+
+
+
