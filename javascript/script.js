@@ -445,5 +445,64 @@ console.log("window.fruit: ",window.fruit);
     console.log(sum2);
 }
 
+{
+    let arr=[10,20,50,60,90,6];
+    let sum=0;
 
+    for (i=0;i<arr.length;i++){
+        sum=sum+arr[i];
+    }
+    console.log("sum : ",sum);
+
+    avg=sum/arr.length;
+    console.log("average : ",avg);
+
+
+    let min=arr[0];
+    for(i=0;i<arr.length;i++){
+        if(arr[i]<min){
+            min=arr[i];
+        }
+    }
+
+    console.log("minimum number : ",min);
+
+    let max=arr[0];
+    for(i=0;i<arr.length;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+    }
+    console.log("maximum number : ",max);
+}
+{
+    let arr=[10,50,60,-20,22,-95];
+
+    for(i=0;i<arr.length;i++){
+        if(arr[i]<0){
+            arr[i]=arr[i]*-1;
+        }
+    }
+    console.log("arr : ",arr)
+}
+{
+    let str="hello";
+    let reverse='';
+    for(i=str.length-1;i>=0;i--){
+        reverse=reverse+str[i];
+    }
+    console.log("reverse : ",reverse);
+}
+
+{
+    let letterarray=['a','B','d'];
+    let upperarray=[];
+    let lowerarray=[];
+    for(let i=0;i<letterarray.length;i++){
+        upperarray[i]=letterarray[i].toUpperCase();
+        lowerarray[i]=letterarray[i].toLowerCase();
+    }
+    console.log("UpperCase array : ",upperarray);
+    console.log("lowercase array : ",lowerarray);
+}
 
