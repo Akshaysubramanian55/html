@@ -505,4 +505,23 @@ console.log("window.fruit: ",window.fruit);
     console.log("UpperCase array : ",upperarray);
     console.log("lowercase array : ",lowerarray);
 }
+{
+    for (let i=1;i<=10;i++){
+        
+        for (let j=0;j<=10;j++){
+            console.log(`${i}*${j}=${i*j}`);
+        }
+        console.log("\n");
+    }
+}
+{
+    let string=''
+    for(i=1;i<=5;i++){
+        for(j=1;j<=i;j++){
+            string=string+'*';
+        }
+       string=string+'\n';
+    }
+    console.log(string);
+}
 
