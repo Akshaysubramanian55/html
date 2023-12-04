@@ -524,4 +524,227 @@ console.log("window.fruit: ",window.fruit);
     }
     console.log(string);
 }
+//function
 
+{
+    //function defnition
+    function printHello(){
+        console.log("Hello World");
+    }
+    printHello();//function call
+
+    //Named Function
+     function getage(){
+        return 22;
+        console.log("not  executable as statements after returns do not execute");
+     }
+
+     age=getage();
+     console.log("Age : ",age);
+
+     //anonymous function
+     let getname = function(){
+        console.log("get the name function called");
+        return "akshay";
+     }
+     let name=getname();
+     console.log("name : ",name);
+
+     //arrow function
+
+     let getmarks =() => {
+        console.log("Arrow function is called");
+        return 80;
+     }
+     let mark=getmarks();
+     console.log("mark :",mark );
+// function with parameter
+     function greeting(message1,message2){
+        console.log("message1 : ",message1);
+        console.log("message2 : ",message2);
+     }
+     greeting("hello","hai")//arguments
+ //sum using function
+     function sum(limit){
+
+    let sum=0;
+    for(i=0;i<=limit;i++){
+        sum=sum+i;
+    }
+    console.log("sum : ",sum);
+     }
+     sum(10);
+//factorial using function
+     function factorial (num){
+
+    let fact=1;
+   
+    for(i=num;i>0;i--){
+        fact=fact*i;
+    }
+    console.log("factorial : ",fact);
+     }
+     factorial(6);
+
+
+     //fibinocci using function
+     function fibinocci(limit){
+        console.log("fibinocci series");
+  let sum1=0;
+  let a=0;
+  let b=1;
+  
+  let i=0;
+   while(i<=limit){
+    sum1=sum1+a;
+    console.log(sum1);
+    a=b;
+    b=sum1;
+    i++;
+   }  
+ 
+}
+fibinocci(10);
+}
+
+//sum of odd and even
+function summ1(limit){
+    console.log("sum")
+     sum1=0;
+     sum2=0
+    for (let i=0;i<=limit;i++){
+        if(i%2==0){
+            sum1=sum1+i;
+        }
+        
+        if(i%2==1){
+            sum2=sum2+i;
+        }
+        
+    }
+    console.log(sum1);
+    console.log(sum2);
+}
+summ1(50);
+// sum and average of elements in array
+
+
+function sumofarray(arr){
+
+    
+    let sum=0;
+
+    for (i=0;i<arr.length;i++){
+        sum=sum+arr[i];
+        return sum;
+    }
+    
+
+    avg=sum/arr.length;
+    console.log("average : ",avg);
+
+
+    let min=arr[0];
+    for(i=0;i<arr.length;i++){
+        if(arr[i]<min){
+            min=arr[i];
+        }
+    }
+}
+let a2=[10,20,30,6,0];
+let resultsum =sumofarray(a2);
+sumofarray(a2);
+console.log("sum of elements : ",resultsum);
+
+function minandmax(arr){
+    
+    let sum=0;
+    let min=arr[0];
+    for(i=0;i<arr.length;i++){
+        if(arr[i]<min){
+            min=arr[i];
+        }
+    }
+
+    console.log("minimum number : ",min);
+
+    let max=arr[0];
+    for(i=0;i<arr.length;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+    }
+    return max
+    console.log("maximum number : ",max);
+}
+let a1=[10,20,60,40,50,4,0]
+ minandmax(a1);
+
+//reverse a string
+function reverse(){
+    let str="hello";
+    let reverse='';
+    for(i=str.length-1;i>=0;i--){
+        reverse=reverse+str[i];
+    }
+    console.log("reverse : ",reverse);
+}
+reverse();
+
+// uppercase and lowercase elements of array
+function upperandlower(letterarray){
+
+    let upperarray=[];
+    let lowerarray=[];
+    for(let i=0;i<letterarray.length;i++){
+        upperarray[i]=letterarray[i].toUpperCase();
+        lowerarray[i]=letterarray[i].toLowerCase();
+    }
+    console.log("UpperCase array : ",upperarray);
+    console.log("lowercase array : ",lowerarray);
+}
+upperandlower(['a','B','d']);
+
+//multiplication tabel
+
+function multiplication(limit){
+    
+    for (let i=1;i<=limit;i++){
+        
+        for (let j=0;j<=10;j++){
+            console.log(`${i}*${j}=${i*j}`);
+        }
+        console.log("\n");
+    }
+}
+multiplication(10);
+
+//triange pattern using function
+function pattern(rows){
+    let string=''
+    for(i=1;i<=rows;i++){
+        for(j=1;j<=i;j++){
+            string=string+'*';
+        }
+       string=string+'\n';
+    }
+    console.log(string);
+}
+pattern(5);
+
+{
+    
+      let a='hello';
+     let str=['a','A','e','E','i','I','o','O','u','U'];
+      let count=0;
+      for(let i=0;i<a.length;i++){
+        for(let j=i;j<=str.length;j++){
+            if(a[i]==str[j]);
+            count1=count++;
+        }
+      }
+      console.log(count1);
+
+    
+    
+}
