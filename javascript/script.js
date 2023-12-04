@@ -733,18 +733,25 @@ function pattern(rows){
 pattern(5);
 
 {
-    
       let a='hello';
-     let str=['a','A','e','E','i','I','o','O','u','U'];
-      let count=0;
       for(let i=0;i<a.length;i++){
-        for(let j=i;j<=str.length;j++){
-            if(a[i]==str[j]);
-            count1=count++;
+            if (a[i]=='a'||a[i]=='A'||a[i]=='e'||a[i]=='E'||a[i]=='i'||a[i]=='I'||a[i]=='o'||a[i]=='O'||a[i]=='u'||a[i]=='U') 
+            console.log(a[i]);  
         }
-      }
-      console.log(count1);
+}
 
+{
+  let arr=[1,2,3,4,5,1,2];
+  let arr1=[];
+
+  for(let i=0;i<arr.length;i++){
+     for(let j=i+1;j<=arr.length;j++){
+        if(arr[i]===arr[j]){
+          arr1[i]=arr[i];
+         
+        }
+     }
     
-    
+  }
+  console.log(arr1);
 }
