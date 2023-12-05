@@ -733,7 +733,7 @@ function pattern(rows){
 pattern(5);
 
 {
-      let a='hello';
+      let a='helloA';
       for(let i=0;i<a.length;i++){
             if (a[i]=='a'||a[i]=='A'||a[i]=='e'||a[i]=='E'||a[i]=='i'||a[i]=='I'||a[i]=='o'||a[i]=='O'||a[i]=='u'||a[i]=='U') 
             console.log(a[i]);  
@@ -754,4 +754,104 @@ pattern(5);
     
   }
   console.log(arr1);
+}
+
+
+{
+    console.log("\n\n\n");
+
+    function update(a){
+        a="New Value";
+        console.log("From Update Function ,a :",a);
+    }
+
+    function updateArr(arr){
+        arr[0]="New Value";
+    }
+
+    function updateobj(obj){
+        obj.name="jane";
+    }
+
+    let a=10;
+    let arr=[1,2,3,4,5];
+    let obj ={name :"John",age :45};
+
+    //call by value
+    console.log("value of a before update :",a);
+    update(a);
+    console.log("value of a after update : ",a);
+
+    //call by reference 
+    console.log("value of arr before update : ",arr);
+    updateArr(arr);
+    console.log("value of arr after update : ",arr);
+
+    //call by reference
+    console.log("value of obj before update : ",obj);
+    updateobj(obj);
+    console.log("value of obj after update : ",obj);
+
+ 
+// closure 
+// A function along with its environment
+
+
+    function outerFunction(){
+        let greetings="haii! from outer Function ";
+        function InnerFunction(){
+            function InnerFunction1(){
+                console.log(greetings);
+            }
+            return InnerFunction1;
+        }
+        return InnerFunction;
+    }
+
+    let result =outerFunction();
+    console.log("result : ",result);
+
+    let result1 =result();
+    console.log("result1 : ",result1);
+    result1();
+
+    // let innerfun=function InnerFunction(){
+    //     console.log(greetings);
+    // };
+    // console.log(innerfun);
+
+    // // innerfun();
+
+
+    let butn=document.getElementById('btn');
+    console.log("button : ",butn);
+    console.log("Button Content : ",btn.textContent);//textcontent or InnerHTML
+
+    let container=document.getElementsByClassName('container');
+    console.log("container : ",container);
+
+    console.log("container 1 : ",container[0]);
+    console.log("content of container 1 : ",container[0].textContent);
+
+    console.log("container 2 : ",container[1]);
+    console.log("content of container 2 : ",container[1].textContent);
+
+    console.log("container 3 : ",container[2]);
+    console.log("content of container 3 : ",container[2].textContent);
+
+    let para=document.getElementsByTagName('p');
+    console.log("para : ",para);
+
+    console.log("para 1: ",para[0]);
+    console.log("content of para 1: ",para[0].textContent);
+
+    console.log("para 2: ",para[1]);
+    console.log("content of para 2: ",para[1].textContent);
+
+    let listItem =document.querySelector('.container #box ul li');
+    console.log("LIST ITEM : ",listItem);
+    console.log("content of li : ",listItem.innerHTML);
+
+    let btn1=document.getElementById('butnn');
+    btn1.innerHTML ="click me";
 }
