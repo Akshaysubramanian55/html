@@ -855,3 +855,106 @@ pattern(5);
     let btn1=document.getElementById('butnn');
     btn1.innerHTML ="click me";
 }
+{
+    let btn=document.getElementById('btn');
+    console.log("btn: ",btn);
+
+    let inp=document.getElementById('inp');
+    console.log("inp : ",inp);
+
+    btn.addEventListener('click', function(){
+       alert("button clicked1");
+    });
+
+    btn.addEventListener('mouseover',function(){
+        console.log("mouseover function fired.....");
+    });
+
+    btn.addEventListener('mouseout',function(){
+        console.log("mouseout event fired.....");
+    });
+
+
+    btn.addEventListener('mousemove', function(){
+        console.log("mousemove event fired......");
+    });
+
+    btn.addEventListener('mousedown',function(){
+        console.log("mouserdown function fired.....");
+    });
+
+    btn.addEventListener('mouseup',function(){
+        console.log("mouseup event fired....");
+    });
+
+    inp.addEventListener('keydown',function(){
+        console.log("keydown event fired....");
+    });
+
+    inp.addEventListener('keyup',function(){
+        console.log("keyup event fired....");
+    });
+
+
+    console.log("\n\n\n");
+// math functions 
+    console.log("sqrt (4) : ",Math.sqrt(4));
+    console.log("round(10.4 : ",Math.round(10.4));
+    console.log("round(10.9 : ",Math.round(10.9));
+    console.log("ceil(4.2) : ",Math.ceil(4.2));
+    console.log("ceil(4.9) : ",Math.ceil(4.9));
+    console.log("floor(10.1) : ",Math.floor(10.1));
+    console.log("floor(10.9) : ",Math.floor(10.9));
+    console.log("abs(2) : ",Math.abs(2));
+    console.log("abs(-2) : ",Math.abs(-2));
+    console.log("PI : ",Math.PI);
+    console.log("max(10,20,30) : ",Math.max(10,20,30));
+    console.log("min(10,20,30) : ",Math.min(10,20,30));
+    console.log("power(2,3)  : ",Math.pow(2,3));
+
+
+    console.log("\n\n\n");
+
+    //callback function
+    function printHello(callback){
+        console.log("callback : ",callback);
+        callback();
+        console.log("helloooo....");
+    }
+    let callback=function(){
+        console.log("callback function");
+    }
+     printHello(callback);
+
+     //timer
+     setTimeout (function(){
+     console.log("from timeout function...")
+     },5000);
+
+     setInterval(function(){
+        console.log("from interal function");
+     },3000);
+}
+
+{
+    function putzero(value){
+       return value<10?"0"+value:value;
+    }
+
+    function show(){
+        var time=document.getElementById('time');
+        var dt= new Date();
+        var hours = dt.getHours();
+        var minutes = dt.getMinutes();
+        var seconds = dt.getSeconds();
+
+        var ampm=hours>12?"pm":"am";
+        time.innerHTML = putzero(hours%12) +":" +putzero(minutes) + ":" + putzero(seconds) +ampm ;
+
+        setTimeout( function(){
+           show();
+        },1000);
+    }
+    show();
+}
+
