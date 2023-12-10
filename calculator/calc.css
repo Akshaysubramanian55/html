@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+table{
+    border: 2px solid black;
+    margin: auto; 
+}
+#button{
+    width: 100%;
+    padding: 20px 40px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+#display{
+    
+    padding: 20px 30px;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+}
