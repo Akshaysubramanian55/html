@@ -927,13 +927,13 @@ pattern(5);
      printHello(callback);
 
      //timer
-     setTimeout (function(){
-     console.log("from timeout function...")
-     },5000);
+    //  setTimeout (function(){
+    //  console.log("from timeout function...")
+    //  },5000);
 
-     setInterval(function(){
-        console.log("from interal function");
-     },3000);
+    //  setInterval(function(){
+    //     console.log("from interal function");
+    //  },3000);
 }
 
 {
@@ -958,3 +958,177 @@ pattern(5);
     show();
 }
 
+{
+
+    console.log("\n\n\n");
+
+ //spread operator
+    let arr=[1,2,3,4,5];
+    console.log("arr : ",arr);
+
+    let arr_cont=[...arr,6];
+    console.log("obj_cont : ",arr_cont);
+
+    let obj ={
+        firstName :" Mike",
+        LastName :" Hardy"
+    }
+    console.log("obj : ",obj);
+
+
+    let obj_cont ={
+        ...obj,
+        age : 30
+    }
+    console.log("obj_cont : ",obj_cont);
+}
+{
+    console.log("\n\n\n");
+    
+    //Destructuring
+
+    let arr =[1,2,3,4,5];
+    console.log("arr : ",arr);
+
+    let [a,b,c,d,e]=arr;
+    console.log("a : ",a);
+    console.log("b : ",b);
+    console.log("c : ",c);
+    console.log("d : ",d);
+    console.log("e : ",e);
+
+
+    let obj ={
+        firstName : "john",
+        LastName : "Henry"
+    }
+    console.log("obj : ",obj);
+
+    let {firstName,LastName} =obj;
+
+    console.log("FirstName : ",firstName);
+    console.log("lastName : ",LastName)
+}
+
+{
+    console.log("\n\n\n");
+    //Nested Destructuring
+
+    let matrix =[
+        [1,2,3],
+        [4,5,6],
+        [7,8,9],
+    ]
+    console.log("matrix : ",matrix);
+
+    let [row1,row2,row3] =matrix;
+    console.log("row1 : ",row1);
+    console.log("row2 : ",row2);
+    console.log("row3 : ",row3);
+
+
+    let [a,b,c] =row1;
+    let [d,e,f] =row2;
+    let [g,h,i] =row3;
+
+    console.log("a : ",a);
+    console.log("b : ",b);
+    console.log("c : ",c);
+    console.log("d : ",d);
+    console.log("e : ",e);
+    console.log("f : ",f);
+    console.log("g : ",g);
+    console.log("h : ",h);
+    console.log("i : ",i);
+
+    let obj ={
+        firstName : "mark",
+        lastName : "hardy",
+        age : 30,
+        address :{
+            street : "mystreet",
+            city : "Ernakulam",
+            pin : 683544,
+        }
+    }
+    console.log("obj : ",obj);
+
+
+    let {firstName,lastName,age,address :{street,city,pin}} =obj;
+
+    console.log("firstName : ",firstName);
+    console.log("lastName : ",lastName);
+    console.log("age : ",age);
+    console.log("street : ",street);
+    console.log("city : ",city);
+    console.log("pin : ",pin);
+}
+
+{
+    function arrayspread(arr1,arr2){
+         
+
+        let arr3 =[...arr1,...arr2];
+        console.log("arr3 : ",arr3);
+    }
+     
+    arrayspread(arr1=[1,2,3,4],arr2=[5,6,7]);
+    console.log("arr1 : ",arr1);
+    console.log("arr2 : ",arr2);
+    
+
+
+    function objectspread(obj1,obj2){
+        let obj3 ={
+            ...obj1,
+            ...obj2
+        }
+        console.log("obj3 : ",obj3);
+        console.log("Obj1 : ",obj1);
+        console.log("obj2 : ",obj2);
+    }
+    
+    objectspread({firstName : "mark",lastname: "hardy"},{age : 30 });
+   
+}
+{
+    let arr= [
+        { name : "akhil", mark :48 ,place : "kollam"},
+        { name : "anil", mark : 49 ,place : "ernakulam"},
+        { name :"vimal", mark : 50 ,place :"kottayam"},
+        { name : "kiran", mark :49 ,place : "alapuzha"},
+    ]
+
+    //for each
+     arr.forEach((element,index) =>{
+      console.log("index : ",index);
+      console.log("element : ",element.name);
+     });
+     //find
+
+     let findresulrt = arr.find((element)=>{
+     return element.name =="anil";
+     
+     });
+     console.log("findresult : ",findresulrt);
+
+     //filter
+     let filterresult = arr.filter((element,index)=>{
+        return element.mark ==49;
+     });
+     console.log("filterresult : ",filterresult);
+     
+     //map
+
+     let mapresult = arr.map((element)=>{
+        return element.name;
+     });
+     console.log("mapresult : ",mapresult);
+
+     //reduce
+
+     let totalmarks = arr.reduce((total,element)=>{
+      return total+element.mark;
+     },0);
+     console.log("totalmark : ",totalmarks);
+}
