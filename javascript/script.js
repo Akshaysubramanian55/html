@@ -1132,3 +1132,45 @@ pattern(5);
      },0);
      console.log("totalmark : ",totalmarks);
 }
+{
+    console.log("\n\n\n");
+
+
+    let arr =[1,2,3,4,5];
+    //squares
+    arr.forEach((element)=>{
+         let squares= element*element;
+         console.log(squares);
+    });
+
+    //first even number
+
+   let even = arr.find((element)=>{
+     return element%2==0;
+    });
+    console.log("even : ",even);
+
+    //all even numbers
+
+    let even_filter =arr.filter((element)=>{
+        return element%2==0;
+    });
+    console.log("even numbers : ",even_filter);
+
+    //double
+
+    let double =arr.map((element)=>{
+        return element*2;
+    });
+    console.log("double : ",double);
+
+    //product positive
+ let arr1=[1,2,-5,9,10]
+    let productpositive=arr1.reduce((total,element)=>{
+           if(element>0){
+          return  total*element;
+           }
+           return total;
+    },1);
+   console.log(productpositive);
+}
