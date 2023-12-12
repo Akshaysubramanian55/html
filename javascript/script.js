@@ -1304,4 +1304,42 @@ let myDog =new Dog("Arjun","black");
 console.log("my Dog : ",myDog);
 myDog.printName();
 myDog.printcolor();
+
+
+class vehicle {
+    name;
+    company;
+    
+     constructor(name,company,){
+        this.name =name;
+        this.company =company;
+        
+     }
+     printvehicle(){
+        console.log(`The vehicle is ${this.name} and by ${this.company}`);
+     }
+}
+let vehicle1= new vehicle("car","bmw",);
+console.log("vehicle1 : ",vehicle1);
+vehicle1.printvehicle();
+
+let vehicle2= new vehicle("Aeroplane","Qatar Airways",);
+console.log("vehicle2 : ",vehicle2);
+vehicle2.printvehicle();
+
+
+class bike extends vehicle{
+    color;
+    constructor(name,company,color){
+        super(name,company);
+        this.color=color;
+    }
+    printcolor(){
+        console.log(` color of ${this.name} is ${this.color}`);
+       }
+}
+let mybike =new bike("bike","kawasaki","black");
+console.log("mybike : ",mybike);
+mybike.printcolor();
+mybike.printvehicle();
 }
