@@ -1138,10 +1138,11 @@ pattern(5);
 
     let arr =[1,2,3,4,5];
     //squares
-    arr.forEach((element)=>{
-         let squares= element*element;
-         console.log(squares);
+   let arr2 = arr.map((element)=>{
+         return element*element; 
     });
+    console.log(arr2); 
+   
 
     //first even number
 
@@ -1173,4 +1174,134 @@ pattern(5);
            return total;
     },1);
    console.log(productpositive);
+}
+
+{
+    console.log("\n\n\n");
+// let person = {
+//    firstName : "john",
+//    lastName :"dae",
+//    age : 30,
+//  getage : function(){
+//     console.log (` Age of ${this.firstName} is ${this.age}`);
+// }
+// }
+// person.getage();
+
+// console.log("this : ",this);
+
+// function greet(message1,message2){
+//     console.log(`${message1} and ${message2} ${this.firstName}`);
+// }
+
+// // greet("hello" ,"haii");
+// // greet.call(person,"hello","haii");
+// // greet.apply(person,["haii","hello"]);
+// let bindedresult =greet.bind(person,"hello","hai");
+// console.log(bindedresult());
+
+
+
+
+
+
+
+
+//constructor function to cteare objects of similar types
+
+// function person (name ,age ,mark){
+//     this.name =name;
+//     this.age =age;
+//     this.mark =mark;
+
+//     this.greeting =function(){
+//       console.log(`hai ${this.name},your mark is ${this.mark} `);
+//     }
+// }
+
+// let person1 =new person ("Harry",18,30);
+// console.log("person1 : ",person1);
+// person1.greeting();
+
+// let person2 =new person ("Tim",17,20);
+// console.log("person2 : ",person2);
+// person2.greeting();
+
+// let person3 =new person ("David",18,26);
+// console.log("person3 : ",person3);
+// person3.greeting();
+
+// person.prototype.getAgeandMark =function(){
+//     console.log(`hai ${this.name},your age is ${this.age} and your mark is ${this.mark}`);
+// }
+// person1.getAgeandMark();
+
+class person {
+    name;
+    age;
+    mark;
+     
+     constructor(name,age,mark){
+        this.name =name;
+        this.age =age;
+        this.mark =mark;  
+     }
+     greeting(){
+        console.log(`haii ${this.name}`);
+     }
+}
+let person1 =new person ("Tim",17,20);
+console.log("person1 : ",person1);
+person1.greeting();
+
+let person2 =new person ("Harry",18,20);
+console.log("person2 : ",person2);
+person2.greeting();
+
+let person3= new person("david",18,25);
+console.log("person3 : ",person3);
+person3.greeting();
+
+person.prototype.getAgeandMark =function(){
+    console.log(`hai ${this.name},your age is ${this.age} and your mark is ${this.mark}`);
+}
+person1.getAgeandMark();
+person2.getAgeandMark();
+person3.getAgeandMark();
+
+
+class Animal {
+    name;
+     constructor(name){
+        this.name =name;
+     }
+     printName(){
+        console.log(`Animal name is ${this.name}`);
+     }
+}
+let myAnimal = new Animal("monkey");
+console.log("my Animal : ",myAnimal);
+myAnimal.printName();
+
+let myAnimal1 = new Animal("Tiger");
+console.log("my Animal1 : ",myAnimal1);
+myAnimal1.printName();
+
+//inheritance
+
+class Dog extends Animal{
+    color;
+   constructor(name,color){
+    super(name)//calls parent constructor
+    this.color =color;
+   }
+   printcolor(){
+    console.log(` color of ${this.name} is ${this.color}`);
+   }
+}
+
+let myDog =new Dog("Arjun","black");
+console.log("my Dog : ",myDog);
+myDog.printName();
+myDog.printcolor();
 }
