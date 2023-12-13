@@ -1342,4 +1342,56 @@ let mybike =new bike("bike","kawasaki","black");
 console.log("mybike : ",mybike);
 mybike.printcolor();
 mybike.printvehicle();
+
+
+
+class MyButton {
+    button;
+    constructor(content){
+      this.button =document.createElement('button');
+      this.button.innerHTML =content;
+      document.body.appendChild(this.button);
+    }
+    set width(width){
+        this.button.style.width =width +"px";
+    }
+    set height(height){
+        this.button.style.height =height +"px";
+    }
+    get width(){
+        return this.button.style.width;
+    }
+    get height (){
+        return this.button.style.height;
+    }
+    onclick(fn){
+        this.button.onclick=fn;
+    }
+}
+let myButton =new MyButton('Click Here');
+console.log("MyButton : ",myButton);
+myButton.width=100;
+myButton.height=50;
+console.log("MyButtonWidith : ",myButton.width);
+console.log("MyButton.Height : ",myButton.height);
+myButton.onclick(function(){
+   console.log("Button Clicked....");
+});
+
+ class YellowButton extends MyButton{
+    onclick(fn){
+        this.button.onclick=function(){
+            fn();
+            this.button.style.background ="yellow";
+        }.bind(this);
+    }
+ }
+ let myYellowButton = new YellowButton("Yellow Button");
+ myYellowButton.width=150;
+myYellowButton.height=100;
+console.log("MyYellowButtonWidith : ",myYellowButton.width);
+console.log("MyYellowButton.Height : ",myYellowButton.height);
+myYellowButton.onclick(function(){
+    console.log("Button Clicked....");
+ });
 }
