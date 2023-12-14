@@ -116,7 +116,7 @@ console.log("window.fruit: ",window.fruit);
     console.log("length of trimmed string : ",trimmedStringLength);
 
 
-    let lefttrim=str.trimStart();
+    let lefttrim=str.trimStart();// trim -removes white space from both the endss
     console.log("trimmed left : ",lefttrim);
     let trimleftlength=lefttrim.length;
     console.log("trimleftlength : ",trimleftlength);
@@ -251,7 +251,7 @@ console.log("window.fruit: ",window.fruit);
         }
      }`;
 
-     let json_to_obj=JSON.parse(json_str);
+     let json_to_obj=JSON.parse(json_str);// parse => json string to js obj
      console.log("json_to_obj:",json_to_obj);
 }
 
@@ -1394,4 +1394,53 @@ console.log("MyYellowButton.Height : ",myYellowButton.height);
 myYellowButton.onclick(function(){
     console.log("Button Clicked....");
  });
+}
+{
+    //java script is synchronous single threded language =>it can handle only one operation at a time 
+
+    console.log("first line");
+    console.log("second line");
+    setTimeout(() => {
+        console.log("from set time out");
+    },5000);//this is asynchronous funtion 
+
+    // let datas=fetch('https://jsonplaceholder.typicode.com/users'); //asynchronous
+    // console.log("datas : ",datas);//console is not synchronous
+    console.log("third line");//this will be executed ahead of the timer function as it is asynchronous fntn and it will executed seperately
+//web space engine
+//javascript engine =>call back queue and microstact queue(higher priority)
+//event loop => responsible for executing the code, collecting and processing events, and executing queued sub-tasks. (a loop that runs continuously and checks for tasks that are waiting to be executed.)
+//call stact =>used by JavaScript to keep track of multiple function calls
+
+
+// ajax and xhr request 
+
+let xhr =new XMLHttpRequest();
+
+//get, post,put,delete
+xhr.open ("get",'https://jsonplaceholder.typicode.com/users');
+xhr.send();
+
+console.log("xhr : ",xhr);
+
+xhr.onreadystatechange =function(){
+    console.log("ready state : ",xhr.readyState);
+    console.log("status : ",xhr.status);
+
+    if (xhr.readyState==4){
+       if(xhr.status ==200){
+           let response = xhr.response;
+           console.log("response : ",response);
+           console.log("type of response : ",typeof(response));
+
+           let parsed_response =JSON.parse(response);
+           console.log("parsed_response: ",parsed_response);
+           console.log("type of parsed_response : ",typeof(parsed_response));
+       }else{
+        console.log("failed...")
+       }
+    }else{
+        console.log("status not completed")
+    }
+}
 }
