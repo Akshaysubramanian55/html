@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.nav_container{
+    background-color: aqua;
+    padding-left: 100px;
+    height: 50px;
+    border: 2px solid black;
+    align-items: center;
+}
+.nav_container a{
+  margin-top: 20px;
+  text-decoration: none;
+  color: black;
+  margin-left: 80px;
+}
+.navbar-nav{
+ margin-top: 20px;
+  text-decoration: none;
+  color: black;
+ 
+}
