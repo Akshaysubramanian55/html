@@ -22,3 +22,10 @@
   color: black;
  
 }
+table,tr,td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+#content{
+  border: 2px solid black;
+}
