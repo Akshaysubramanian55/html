@@ -110,13 +110,13 @@ console.log("window.fruit: ",window.fruit);
     let length2=str.toLowerCase().length;
     console.log("length: ",length2);
 
-    let trimmedstring=str.trim();
+    let trimmedstring=str.trim();// trim -removes white space from both the endss
     console.log("trimmedstring : ",trimmedstring);
     let trimmedStringLength=trimmedstring.length;
     console.log("length of trimmed string : ",trimmedStringLength);
 
 
-    let lefttrim=str.trimStart();// trim -removes white space from both the endss
+    let lefttrim=str.trimStart();
     console.log("trimmed left : ",lefttrim);
     let trimleftlength=lefttrim.length;
     console.log("trimleftlength : ",trimleftlength);
@@ -153,7 +153,7 @@ console.log("window.fruit: ",window.fruit);
     console.log("replacedallstring : ",replacedallstring);
 
     let concatstring=str.concat(" ",str2);
-    console.log("concatstring : ",concatstring);
+    console.log("concatstring : ",concatstring);//joins 2 stringss
 
     let padstart=str.padStart(15,"h");
     console.log("padstart : ",padstart);
@@ -161,10 +161,10 @@ console.log("window.fruit: ",window.fruit);
     let padEnd=str.padEnd(15,"h");
     console.log("padsEnd: ",padEnd);
 
-    let charAtstring=str.charAt(2);
+    let charAtstring=str.charAt(2);//returns the specified index
     console.log("charAt 0: ",charAtstring);
 
-    let charcodeAtstring=str.charCodeAt(5);
+    let charcodeAtstring=str.charCodeAt(5);//returns unicode at specified position on string
     console.log("charcodeAt 0: ",charcodeAtstring);
 }
  //array
@@ -1091,47 +1091,47 @@ pattern(5);
 //     objectspread({firstName : "mark",lastname: "hardy"},{age : 30 });
    
 // }
-// {
-//     let arr= [
-//         { name : "akhil", mark :48 ,place : "kollam"},
-//         { name : "anil", mark : 49 ,place : "ernakulam"},
-//         { name :"vimal", mark : 50 ,place :"kottayam"},
-//         { name : "kiran", mark :49 ,place : "alapuzha"},
-//     ]
+{
+    let arr= [
+        { name : "akhil", mark :48 ,place : "kollam"},
+        { name : "anil", mark : 49 ,place : "ernakulam"},
+        { name :"vimal", mark : 50 ,place :"kottayam"},
+        { name : "kiran", mark :49 ,place : "alapuzha"},
+    ]
 
-//     //for each
-//      arr.forEach((element,index) =>{
-//       console.log("index : ",index);
-//       console.log("element : ",element.name);
-//      });
-//      //find
+    //for each
+     arr.forEach((element,index) =>{
+      console.log("index : ",index);
+      console.log("element : ",element.name);
+     });
+     //find
 
-//      let findresulrt = arr.find((element)=>{
-//      return element.name =="anil";
+     let findresulrt = arr.find((element)=>{
+     return element.name =="anil";
      
-//      });
-//      console.log("findresult : ",findresulrt);
+     });
+     console.log("findresult : ",findresulrt);
 
-//      //filter
-//      let filterresult = arr.filter((element,index)=>{
-//         return element.mark ==49;
-//      });
-//      console.log("filterresult : ",filterresult);
+     //filter
+     let filterresult = arr.filter((element,index)=>{
+        return element.mark ==49;
+     });
+     console.log("filterresult : ",filterresult);
      
-//      //map
+     //map
 
-//      let mapresult = arr.map((element)=>{
-//         return element.name;
-//      });
-//      console.log("mapresult : ",mapresult);
+     let mapresult = arr.map((element)=>{
+        return element.name;
+     });
+     console.log("mapresult : ",mapresult);
 
-//      //reduce
+     //reduce
 
-//      let totalmarks = arr.reduce((total,element)=>{
-//       return total+element.mark;
-//      },0);
-//      console.log("totalmark : ",totalmarks);
-// }
+     let totalmarks = arr.reduce((total,element)=>{
+      return total+element.mark;
+     },0);
+     console.log("totalmark : ",totalmarks);
+}
 // {
 //     console.log("\n\n\n");
 
@@ -1415,7 +1415,7 @@ pattern(5);
 
 // ajax and xhr request 
 
-let xhr =new XMLHttpRequest();
+let xhr =new XMLHttpRequest();//xhr request can be used to request data from any server
 
 
 let btn11=document.getElementById('btn11');
@@ -1428,7 +1428,12 @@ xhr.open ("get",'https://jsonplaceholder.typicode.com/users');
 
 console.log("xhr : ",xhr);
 
-
+//onreadystatechange holds status of the request $$$ define function to be executed when ready state change
+//readystate 0 => request not initialized
+//readystate 1 =>server connection established
+//readystate 2 =>request received
+//readystate 3 =>processing request 
+//readystate 4 => request finished and response is ready
 
 xhr.onreadystatechange =function(){
     console.log("ready state : ",xhr.readyState);
