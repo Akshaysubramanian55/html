@@ -22,28 +22,26 @@
   color: white;
  
 }
-table,tr,td {
-  border: 2px solid black;
-  border-collapse: collapse;
-}
-.contaiiner{
-  background-color:white;
-  position: relative;
-  width: 100%;
-}
-.contaiiner h1{
-     font-size:70px;
-     text-align: center;
-     color: red;
-}
-.contaiiner h6{
-  font-size: 30px;
-  text-align: center;
-  color:black;
-}
-.contaiiner #btn11{
-  position: absolute;
-  left: 45%;
-}
 
+#content h3{
+  color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+#content p{
+  color: black;
+  margin-left: 200px;
+}
+#content{
+  background-color: red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#content img{
+  margin-top: 20px;
+}
+#content button{
+  margin-bottom: 50px;
+  margin-left: 200px;
+}
 

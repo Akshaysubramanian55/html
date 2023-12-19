@@ -1,11 +1,11 @@
 {
     let xhr =new XMLHttpRequest();
-    let btn11=document.getElementById('btn11');
-btn11.addEventListener('click',() =>{
-    xhr.send();
-});
+    
+  
+
 
     xhr.open('get','https://fakestoreapi.com/products');
+    xhr.send();
   console.log("xhr : ",xhr);
 
 xhr.onreadystatechange =function(){
@@ -34,11 +34,11 @@ xhr.onreadystatechange =function(){
             //     `
               datas=datas+`
               <div>
-              <div >${parsed_response[i].title }</div>
-           
-              <div>${parsed_response[i].price}</div>
-              <div>${parsed_response[i].category}</div>
-              <div><img src="${parsed_response[i].image}" alt="" height=200px width=20% border=2px solid></div>
+              <h3 class="tittle">${parsed_response[i].title } </h3>
+              <img src="${parsed_response[i].image}" alt=""class="images" height=200px width=80% border=2px solid>
+              <p class="category"${parsed_response[i].category}</p>
+              <p class="price">${parsed_response[i].price}</p>
+              <button class="cart">Add Cart</button>
               </div>
               `
             }

@@ -85,5 +85,26 @@
     //_
     //starts with chara
    
+  const regexInp=/^[a-z] [a-z0-9_]*$/i;
+  function checkResult(value){
+    const result=regexInp.test(value);
+    if(result){
+        return '';
+    }else{
+        return 'invalid string';
+    }
+  }
+  const value="_J_9ashdjd";
+  let validation_result =checkResult(value);
+  console.log("validation_result : ",validation_result);
 
+  function onChange(arg){
+    let validation_result=checkResult(arg.value);
+    let label =document.getElementById('error');
+    if(validation_result){
+        label.innerHTML=validation_result;
+    }else{
+        label.innerHTML=validation_result;
+    }
+  }
 }
