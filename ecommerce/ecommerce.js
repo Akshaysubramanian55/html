@@ -35,7 +35,7 @@ xhr.onreadystatechange =function(){
               datas=datas+`
               <div>
               <div >${parsed_response[i].title }</div>
-              <div>${parsed_response[i].description}</div>
+           
               <div>${parsed_response[i].price}</div>
               <div>${parsed_response[i].category}</div>
               <div><img src="${parsed_response[i].image}" alt="" height=200px width=20% border=2px solid></div>
