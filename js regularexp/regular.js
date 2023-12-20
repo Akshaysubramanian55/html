@@ -85,26 +85,137 @@
     //_
     //starts with chara
    
-  const regexInp=/^[a-z] [a-z0-9_]*$/i;
-  function checkResult(value){
-    const result=regexInp.test(value);
-    if(result){
-        return '';
-    }else{
-        return 'invalid string';
-    }
-  }
-  const value="_J_9ashdjd";
-  let validation_result =checkResult(value);
-  console.log("validation_result : ",validation_result);
+  // const regexInp=/^[a-z][a-z0-9_]*$/i;
+  // function checkResult(value){
+  //   const result=regexInp.test(value);
+  //   if(result){
+  //       return '';
+  //   }else{
+  //       return 'invalid string';
+  //   }
+  // }
+  // const value="_J_9ashdjd";
+  // let validation_result =checkResult(value);
+  // console.log("validation_result : ",validation_result);
 
-  function onChange(arg){
-    let validation_result=checkResult(arg.value);
-    let label =document.getElementById('error');
-    if(validation_result){
-        label.innerHTML=validation_result;
-    }else{
-        label.innerHTML=validation_result;
-    }
+  // function onChange(arg){
+  //   let validation_result=checkResult(arg.value);
+  //   let label =document.getElementById('error');
+  //   if(validation_result){
+  //       label.innerHTML=validation_result;
+  //   }else{
+  //       label.innerHTML=validation_result;
+  //   }
+  // }
+}
+
+const str5="Hello";
+
+const regexp17=/[kjm]/i;//if there is k,j or m in the string it will be true 
+const result17=regexp17.test(str5);
+console.log("Result17 : ",result17);//false
+
+const regexp18=/[^kjm]/i;// of no k,j or m it will be true
+const result18=regexp18.test(str5);
+console.log("Result18 : ",result18);//false
+
+const regexp19=/[H+]/;//atleast one H is required
+const result19=regexp19.test(str5);
+console.log("Result : ",result19);//true
+
+const regexp20=/o$/i;//atleast one o at the end
+const result20=regexp20.test(str5);
+console.log("Result : ",result20);//true
+
+const regexp21=/o?$/i;// o at the end is optional
+const result21=regexp21.test(str5);
+console.log("Result21 : ",result21);//true
+
+const regexp22=/o+$/i;// atleast one o is required at the string ending
+const result22=regexp22.test(str5);
+console.log("Result21 : ",result22);//true
+
+//{}=> indicates n.o of characters,a{2} means "aa"  i.e 2 a is required
+
+const regexp23=/L{2}o$/i;//exactly 2 l is required
+const result23=regexp23.test(str5);
+console.log("Result23 : ",result23);//true
+
+
+const regexp24=/L{2,4}o$/i;// o should be after 2-4 l's
+const result24=regexp24.test(str5);
+console.log("Result24 : ",result24);//true
+
+const regexp25=/HEL{2,4}o$/i;//o should be exactly after 2-4 l's 
+const result25=regexp25.test(str5);
+console.log("Result25 : ",result25);//true
+
+const regexp26=/HEL{2,}o$/i;//2 or more l is required
+const result26=regexp26.test(str5);
+console.log("Result26 : ",result26);//true
+
+
+
+// \ =>indicates excape character, used for matching any character which has special meaning
+
+const regexp27=/\d/i;//if there is any digits it will be true or false
+const result27=regexp27.test(str5);
+console.log("Result27 : ",result27);//false
+
+const regexp28=/\D/i;//if there is any non-digits it will be true or false
+const result28=regexp28.test(str5);
+console.log("Result28 : ",result28);//true
+
+//suppose we want to match '.' in a string but it has special meaning so it will not work as expected it may match everything
+
+const regexp29=/./i;// if there is a '.' it will match
+const result29=regexp29.test(str5);
+console.log("Result29 : ",result29);//true
+
+//so we can write it as
+
+const regexp30=/\./i;// if there is '.' in the string it will match else false
+const result30=regexp30.test(str5);
+console.log("Result30 : ",result30);//false
+
+//so \(backslash) is used to escape special character
+
+//date validation
+
+//1
+
+// | => indicate or case 1|2 induicates either 1 or 2 can occur
+
+const getexpfordate=/^\d{1,2}-\d{1,2}-\d{4}$/;// string should start with 1or 2 digits then '-' then 1 or 2 digits and end with 4 digits.
+
+//2
+
+const getexpfordate1=/^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4})$/i;//in the first group if the first digit is 0,1,2 then the second digit can be 0-9 or if firt digit is 3 then second must be 0 or 1
+//in the second group if the first digit is 0 then the second is either 1o or 2.... if first digit is 1 then second chara is 0,1,2 
+// third group must have four digits
+
+
+function checkResult(value){
+  const result=getexpfordate1.test(value);
+  if(result){
+      return '';
+  }else{
+      return 'invalid string';
   }
 }
+const value="_J_9ashdjd";
+let validation_result =checkResult(value);
+console.log("validation_result : ",validation_result);
+
+function onChange(arg){
+  let validation_result=checkResult(arg.value);
+  let label =document.getElementById('error');
+  if(validation_result){
+      label.innerHTML=validation_result;
+  }else{
+      label.innerHTML=validation_result;
+  }
+}
+
+//e-mail validation
+
