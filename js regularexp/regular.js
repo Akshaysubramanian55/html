@@ -186,17 +186,42 @@ console.log("Result30 : ",result30);//false
 
 // | => indicate or case 1|2 induicates either 1 or 2 can occur
 
-const getexpfordate=/^\d{1,2}-\d{1,2}-\d{4}$/;// string should start with 1or 2 digits then '-' then 1 or 2 digits and end with 4 digits.
+// const getexpfordate=/^\d{1,2}-\d{1,2}-\d{4}$/;// string should start with 1or 2 digits then '-' then 1 or 2 digits and end with 4 digits.
 
-//2
+// //2
 
-const getexpfordate1=/^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4})$/i;//in the first group if the first digit is 0,1,2 then the second digit can be 0-9 or if firt digit is 3 then second must be 0 or 1
-//in the second group if the first digit is 0 then the second is either 1o or 2.... if first digit is 1 then second chara is 0,1,2 
-// third group must have four digits
+// const getexpfordate1=/^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4})$/i;//in the first group if the first digit is 0,1,2 then the second digit can be 0-9 or if firt digit is 3 then second must be 0 or 1
+// //in the second group if the first digit is 0 then the second is either 1o or 2.... if first digit is 1 then second chara is 0,1,2 
+// // third group must have four digits
 
 
+// function checkResult(value){
+//   const result=getexpfordate1.test(value);
+//   if(result){
+//       return '';
+//   }else{
+//       return 'invalid string';
+//   }
+// }
+// const value="_J_9ashdjd";
+// let validation_result =checkResult(value);
+// console.log("validation_result : ",validation_result);
+
+// function onChange(arg){
+//   let validation_result=checkResult(arg.value);
+//   let label =document.getElementById('error');
+//   if(validation_result){
+//       label.innerHTML=validation_result;
+//   }else{
+//       label.innerHTML=validation_result;
+//   }
+// }
+
+//e-mail validation
+ 
+const getexpforemail=/^\w*@(\w+)*(\.\w{2,3})$/i;
 function checkResult(value){
-  const result=getexpfordate1.test(value);
+  const result=getexpforemail.test(value);
   if(result){
       return '';
   }else{
@@ -216,6 +241,3 @@ function onChange(arg){
       label.innerHTML=validation_result;
   }
 }
-
-//e-mail validation
-
