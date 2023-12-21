@@ -219,7 +219,7 @@ console.log("Result30 : ",result30);//false
 
 //e-mail validation
  
-const getexpforemail=/^\w*@(\w+)*(\.\w{2,3})$/i;
+const getexpforemail=/^[a-z0-9_-]*@([a-z0-9]+)*(\.[a-z]{2,3})$/i;
 function checkResult(value){
   const result=getexpforemail.test(value);
   if(result){
@@ -241,3 +241,135 @@ function onChange(arg){
       label.innerHTML=validation_result;
   }
 }
+//^ and & can be used only at the start and end of the string inbetwwen the strings it cannot be used so we use lookaheads
+
+
+//(?=)=> positive look ahead A(?=)B matches A only if A is followed by B
+//(?!)=> negative lookahead A(?!)B matches A only if A is not followed by B
+//(?<=)=>positive lookbehind (?<=B)A matches A only if A is preceeded by B
+//(?<!)=>  Negative lookbehind (?<!B)A matches A only if A is not preceeded by B
+
+{
+  let datestring='19-12-2023';
+  let regex=/-\d+-/;
+  const result=datestring.match(regex);
+  console.log("result : ",result);
+
+  // inorder to match 12 exactly use lookaheads
+
+  let regex1=/(?<=-)\d+(?=-)/;
+  const result1=datestring.match(regex1);
+  console.log("result1 : ",result1);
+
+
+  //negative lookahead and negative lookbehind
+  let phone="(91)1234567890";
+
+  //match numbers outside of (91)
+
+  const phoneregex=/(?<!\()\d+(?!\))/;
+  const phoneresult=phone.match(phoneregex);
+console.log("result phone : ",phoneresult);
+}
+
+function finduser(userid){
+  let userinfo=[
+    {
+      id:1,
+      name:"john",
+      age:30,
+    },
+    {
+      id:2,
+      name:"jae",
+      age:26,
+    },
+  ];
+  let user=userinfo.find((element)=> element.id==userid);
+  return user;
+}
+let user=finduser(1);
+console.log("User : ",user);
+
+
+
+
+function finduser1(userid){
+  let userinfo=[
+    {
+      id:1,
+      name:"john",
+      age:30,
+    },
+    {
+      id:2,
+      name:"jae",
+      age:26,
+    },
+  ];
+  
+
+//invoking an asynchronous operation
+
+setTimeout(()=>{
+  let user=userinfo.find((element)=> element.id==userid);
+  return user;
+},500);
+}
+let user1=finduser1(1);
+console.log("User1 : ",user1);
+
+//using promise
+
+function finduser2(userid){
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      let userinfo=[
+        {
+          id:1,
+          name:"john",
+          age:30,
+        },
+        {
+          id:2,
+          name:"jae",
+          age:26,
+        },
+      ];
+      let user=userinfo.find((element)=> element.id==userid);
+      if (user){
+        resolve(user);
+      }else{
+        reject("user not found");
+      }
+    
+  },3000);
+});
+}
+// finduser2(2)
+// .then((user)=>{
+//   console.log("\n\n\n")
+//   console.log("user : ",user);
+//   console.log(user.name);
+// })
+// .catch((erroe)=>{
+//   console.log("error",error);
+// })
+// .finally(()=>{
+//   console.log("experiment completed");
+// })
+
+async function getdata(){
+
+
+  try {
+    let userdata=await finduser2(1);
+  console.log("userdata : ",userdata);
+  } catch (error) {
+    console.log("error : ",error);
+  }finally{
+    console.log("completed");
+  }
+  
+}
+getdata();
