@@ -1,0 +1,63 @@
+mongo - open a collection to the local mongodb instance
+show dbs - shows all databases
+db - prints current databases
+db.dropDatabase()- delete the current database
+show collections - show all collections in database
+db.createCollection("users")-create a collectionwith name users
+
+CRUD- create Read Update delete
+
+
+//create
+db.users.insertOne({name:"rahul"}) //create a new document inside the user collection
+db.users.insertMany({name:"john"},{name:"jane"})//create multiple new document inside the users collectiom
+db.users.insertOne({firstName:"Akshay",lastName:"Subramanaian",email:"akshaysubramanian55@gmail.com",skills:["hyml","css","js"],address:{state:"kerala",district:"ernakulam",country:"India"}})
+
+//Read
+
+db.user.find() //get all documents from user's collection
+
+
+db.user.find(<filter objject>)//finds all the documents that matches the filter
+db.user.finf({name:"akshay"})
+
+db.user.find(<filter object> <select object>)  //finds all the documents that matches the filter object but returns only the specified files 
+    db.user.find({age:35}{id:"2"})
+
+db.user.countDocuments(<filter object>)//returns count
+    db.user.countDocuments({})    
+
+db.user.findOne({name :"rahul"}) // returns the document that that matches the filter first 
+
+
+//Update
+db.user.updateOne({name:"rahul"},{$set :{name"pradeep}})//replaces rahul with pradeep
+db.user.updateMany({name:"jane"},{$set{name:"johny}})//replaces jane with johny in all the matches
+db.updateMany({age:20},{$inc:{age:5}})//increses age by 5
+db.user.replaceOne({name:"rahul",{name:"rohit}})//replace the complete match of the document that first match 
+
+//delete
+db.user.deleteOne({name:"rahul"})//delete first document that matches the filter
+d.user.deleteMany({name:"rohit"})//delete all document that matches the filter
+
+//additional filters using objects
+
+db.user.find({name :{$eq:"john}})//get all the dicuments where name equal to john
+db.user.find({name :{$ne:"john}})//get all the dicuments where name nNOT equal to john
+
+db.user.find({age:{$gt:12}})//get all the document whre the age is greater than 12 
+db.user.find({age:{$gte:12}})//get all the document whre the age is greater than or equal to 12 
+db.user.find({age:{$lt:12}})//get all the document whre the age is less than 12 
+db.user.find({age:{$lte:12}})//get all the document whre the age is less than or equal to 12 
+
+
+
+db.user.find({name:{$in:["Riya","johm"]}})  //get all the users with name riya and john
+db.user.find({name:{$nin:["Riya","johm"]}})  //get all the users that doesnot have  name riya and john
+db.user.find({$and:[{name: "riya"},{age:15}]}) // get all the users with name riya and age 15
+db.user.find({$or:[{name: "riya"},{age:15}]}) // get all the users with name riya or age 15
+db.user.find({name:{$not:{$eq:"riya"}}})  // get all the user with name other than riya
+db.user.find({age:{$exists:true}}) //get all the users having an age field
+db.user.find({age:{$exists:false}}) //get all the users not having an age field
+db.user.find({$expr:{$gt:["$age","$min_age"]}}) get all users having age greater than min age
+db.users_coll.find({$expr:{gt:["$balamce","$min]}})
