@@ -51,7 +51,6 @@ db.user.find({age:{$lt:12}})//get all the document whre the age is less than 12
 db.user.find({age:{$lte:12}})//get all the document whre the age is less than or equal to 12 
 
 
-
 db.user.find({name:{$in:["Riya","johm"]}})  //get all the users with name riya and john
 db.user.find({name:{$nin:["Riya","johm"]}})  //get all the users that doesnot have  name riya and john
 db.user.find({$and:[{name: "riya"},{age:15}]}) // get all the users with name riya and age 15
@@ -61,3 +60,18 @@ db.user.find({age:{$exists:true}}) //get all the users having an age field
 db.user.find({age:{$exists:false}}) //get all the users not having an age field
 db.user.find({$expr:{$gt:["$age","$min_age"]}}) get all users having age greater than min age
 db.users_coll.find({$expr:{gt:["$balamce","$min]}})
+
+
+//Additional update objects
+db.users.updateOne({age:15},{$set:{name:"hii"}})//updates the name of the first user with age 15 to value hii
+db.user.updateOne({age:10},{$inc:{age:5}})//add 5 to the age of the first user with age of 10
+db.users.updateMany({},{$rename:{age:"years"}})//renames the field age to years of all the users
+db.updateMany({},{$push:{social_medias:"instagram"}})//add instagram to the social media array of all the users
+db.user.updatreMany({},{$pull:{social_medias:"instagram"}})//removes instagram from the socialmedia array of all users
+
+
+//read modifiers
+
+db.user.find().sort({name:1,age:-1})//get all users sorted by the name in alphabetical order and if any names are the same sort by age in reverse order
+db.user.find().limit(2)//only returns the firrst 2 users
+db.users.find().skip(4)//skip the first 4 users when returning the result..skip and limit are combined for applying pagination
