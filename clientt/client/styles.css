@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0px;
     box-sizing: border-box;
-}
-.container{
+ }
+ .container{
     height: 60vh;
     border: 1px solid black;
     background-color: brown;
@@ -24,4 +24,5 @@
 label{
     margin-right: 20px;
 }
+
 

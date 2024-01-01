@@ -15,13 +15,16 @@ const server = http.createServer((req,res)=>{
 //serve the  HTML file to the root request
     if (parsed_url.pathname==='/'){
         res.writeHead(200,{'Content-Type': 'text/html'});
-        res.end(fs.readFileSync('../../clientt/client/index.html'));
+        res.end(fs.readFileSync('../../serversite/index.html'));
+    }else if(parsed_url.pathname==='/styles.css'){
+        res.writeHead(200,{'Content-Type': 'text/css'});
+        res.end(fs.readFileSync('../../serversite/styles.css'));
     }
   // handle form submission on post request to submit
     if( req.method==="POST"&&parsed_url.pathname==="/submit"){
         console.log("Form submitted successfully");
-        // res.writeHead(200,{'content-Type': 'text/plain'});
-        // res.end("form submitted successfully..");
+        res.writeHead(200,{'content-Type': 'text/plain'});
+        res.end("form submitted successfully..");
 
 
         let body='';
@@ -37,9 +40,9 @@ const server = http.createServer((req,res)=>{
             const formData=queryString.parse(body);
             console.log("formData : ",formData);
 
-            console.log("name : ",formData.name);
-            console.log("email : ",formData.email);
-            console.log("password : ",formData.password);
+            console.log("Product : ",formData.name);
+            console.log("Size : ",formData.email);
+            console.log("Prize : ",formData.password);
         });
     }
 });
