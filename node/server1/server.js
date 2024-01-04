@@ -60,7 +60,7 @@ const client = new MongoClient("mongodb://127.0.0.1:27017");
 
 
 
-const server = http.createServer((req,res)=>{
+const server = http.createServer(async(req,res)=>{
 
     //Access the database and collections
     const db=client.db("users");
@@ -80,7 +80,13 @@ const server = http.createServer((req,res)=>{
     }else if(parsed_url.pathname==='/styles.css'){
         res.writeHead(200,{'Content-Type': 'text/css'});
         res.end(fs.readFileSync('../../clientt/client/styles.css'));
-    }
+    }else if(parsed_url.pathname==='/adduser'){
+      res.writeHead(200,{'Content-Type': 'text/html'});
+      res.end(fs.readFileSync('../../clientt/client/adduser.html'));
+  }else if(parsed_url.pathname==='/getuser'){
+    res.writeHead(200,{'Content-Type': 'text/html'});
+    res.end(fs.readFileSync('../../clientt/client/getuser.html'));
+}
   // handle form submission on post request to submit
     if( req.method==="POST"&&parsed_url.pathname==="/submit"){
         console.log("Form submitted successfully");
@@ -119,6 +125,18 @@ const server = http.createServer((req,res)=>{
            res.end("form submitted successfully..");
          });
 
+    }
+    //Handle get request to the user details
+
+    if(req.method==="GET" && parsed_url.pathname==="/getData"){
+      let data=await collection.find().toArray();
+      console.log("data : ",data);
+
+      let json_data=JSON.stringify(data);
+      console.log("jsondata : ",json_data);
+
+      res.writeHead(200,{'content-Type': 'text/json'});
+      res.end(json_data);
     }
 });
 
