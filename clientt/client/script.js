@@ -9,7 +9,7 @@ async function getuserdata(){
    let content='';
 
    for(let i=0;i<parsedUserData.length;i++){
-      let content= content+`
+       content= content + `
      <tr>
      <td>${parsedUserData[i].name}</td>
      <td>${parsedUserData[i].email}</td>

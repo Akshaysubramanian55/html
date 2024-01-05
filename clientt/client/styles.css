@@ -27,10 +27,11 @@ label{
 
 ul li a{
     text-decoration: none;
-    color: inherit;
+    background-color: aqua;
+    
 }
 table,th,td{
-    border: 2px solid white;
+    border: 2px solid black;
     border-collapse: collapse;
     padding: 8px;
 }

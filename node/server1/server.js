@@ -78,17 +78,17 @@ const server = http.createServer(async(req,res)=>{
         res.writeHead(200,{'Content-Type': 'text/html'});
         res.end(fs.readFileSync('../../clientt/client/index.html'));
     }else if(parsed_url.pathname==='/styles.css'){
-        res.writeHead(200,{'Content-Type': 'text/css'});
-        res.end(fs.readFileSync('../../clientt/client/styles.css'));
+        res.writeHead(200,{"Content-Type": "text/css"});
+        res.end(fs.readFileSync("../../clientt/client/styles.css"));
     }else if(parsed_url.pathname==='/adduser.html'){
       res.writeHead(200,{'Content-Type': 'text/html'});
       res.end(fs.readFileSync('../../clientt/client/adduser.html'));
-  }else if(parsed_url.pathname==='/getuser.html'){
-    res.writeHead(200,{'Content-Type': 'text/html'});
-    res.end(fs.readFileSync('../../clientt/client/getuser.html'));
-}else if(parsed_url.pathname==='/script.js'){
-  res.writeHead(200,{'Content-Type': 'text/javascript'});
-  res.end(fs.readFileSync('../../clientt/client/script.js'));
+    }else if(parsed_url.pathname==='/getuser.html'){
+      res.writeHead(200,{"Content-Type": "text/html"});
+      res.end(fs.readFileSync('../../clientt/client/getuser.html'));
+    }else if(parsed_url.pathname==='/script.js'){
+    res.writeHead(200,{'Content-Type': 'text/javascript'});
+    res.end(fs.readFileSync('../../clientt/client/script.js'));
 }
   // handle form submission on post request to submit
     if( req.method==="POST"&&parsed_url.pathname==="/submit"){
@@ -138,7 +138,7 @@ const server = http.createServer(async(req,res)=>{
       let json_data=JSON.stringify(data);
       console.log("jsondata : ",json_data);
 
-      res.writeHead(200,{'content-Type': 'text/json'});
+      res.writeHead(200,{"content-Type": "text/json"});
       res.end(json_data);
     }
 });
