@@ -33,5 +33,14 @@ function handleEdit(id){
 
    let name=document.getElementById(`name-${_id}`);
    console.log("name : ",name);
-   // name.disabled=false;
+   name.disabled=false;
+
+   let email=document.getElementById(`email-${_id}`);
+   console.log("name : ",email);
+   email.disabled=false;
+
+
+   let password=document.getElementById(`password-${_id}`);
+   console.log("name : ",password);
+   password.disabled=false;
 }
