@@ -54,7 +54,7 @@ const url =require('url');
 const port =3000;
 const fs=require('fs');
 const queryString = require('querystring');
-const { MongoClient }=require('mongodb');
+const { MongoClient, ObjectId }=require('mongodb');
 
 const client = new MongoClient("mongodb://127.0.0.1:27017");
 
@@ -141,6 +141,32 @@ const server = http.createServer(async(req,res)=>{
       res.writeHead(200,{"content-Type": "text/json"});
       res.end(json_data);
     }
+   if(req.method ==="pUT"&& parsed_url.pathname==="/editData"){
+    let body="";
+    req.on('data',(chunks)=>{
+      console.log("chunk : ",chunk);
+            console.log('chunk.toString(): ',chunks.toString());
+            body+=chunks.toString();
+            console.log("body : ",body);
+    });
+    req.on('end',async()=>{
+      console.log("body :",body);
+      let data=JSON.parse(body);
+      let id=data.id;
+      console.log("id : ",id);
+
+      let _id= new ObjectId(id);
+      console.log("_id : ",_id);
+
+      let updateDatas={
+        name:data.name,
+        email:data.email,
+        password:data.password,
+      }
+      await collections.updateOne({_id},{$set : updateDatas})
+      
+    })
+   }
 });
 
 async function connect(){
