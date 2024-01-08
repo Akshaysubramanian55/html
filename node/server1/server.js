@@ -164,7 +164,16 @@ const server = http.createServer(async(req,res)=>{
         password:data.password,
       }
       await collections.updateOne({_id},{$set : updateDatas})
-      
+      .then((mmessage)=>{
+        console.log("Document updated successfully : ",message);
+        res.writeHead(200,{"content-type":"text/plain"});
+        res.end("updated successfully");
+      })
+      .catch((error)=>{
+        console.log("Document not updated : ",error);
+        res.writeHead(400,{"content-type":"text/plain"});
+        res.end("Updation Failed");
+      })
     })
    }
 });
