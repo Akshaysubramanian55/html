@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+h2{
+    text-align: center;
+    margin-top: 20px;
+}
+.class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+.class button{
+    margin-left: 30px;
+    background-color: yellow;
+}

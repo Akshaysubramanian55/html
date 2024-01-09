@@ -124,7 +124,7 @@ const server = http.createServer(async(req,res)=>{
            console.log("document not inserted");
            console.log("database insersation error: ",error);
          })
-           res.writeHead(200,{'content-Type': 'text/plain'});
+           res.writeHead(200,{'Content-Type': 'text/plain'});
            res.end("form submitted successfully..");
          });
 
@@ -138,15 +138,15 @@ const server = http.createServer(async(req,res)=>{
       let json_data=JSON.stringify(data);
       console.log("jsondata : ",json_data);
 
-      res.writeHead(200,{"content-Type": "text/json"});
+      res.writeHead(200,{"Content-Type": "text/json"});
       res.end(json_data);
     }
-   if(req.method ==="pUT"&& parsed_url.pathname==="/editData"){
+   if(req.method ==="PUT"&& parsed_url.pathname==="/editData"){
     let body="";
     req.on('data',(chunks)=>{
-      console.log("chunk : ",chunk);
+      console.log("chunks : ",chunks);
             console.log('chunk.toString(): ',chunks.toString());
-            body+=chunks.toString();
+            body= body + chunks.toString();
             console.log("body : ",body);
     });
     req.on('end',async()=>{
@@ -163,16 +163,40 @@ const server = http.createServer(async(req,res)=>{
         email:data.email,
         password:data.password,
       }
-      await collections.updateOne({_id},{$set : updateDatas})
-      .then((mmessage)=>{
+      await collection.updateOne({_id},{$set : updateDatas})
+      .then((message)=>{
         console.log("Document updated successfully : ",message);
-        res.writeHead(200,{"content-type":"text/plain"});
+        res.writeHead(200,{"Content-type":"text/plain"});
         res.end("updated successfully");
       })
       .catch((error)=>{
         console.log("Document not updated : ",error);
-        res.writeHead(400,{"content-type":"text/plain"});
+        res.writeHead(400,{"Content-type":"text/plain"});
         res.end("Updation Failed");
+      })
+    })
+   }
+
+   if(req.method ==="DELETE"&& parsed_url.pathname==="/deleteData"){
+    console.log("reached delete route");
+    let body ="";
+    req.on('data',(chunks)=>{
+      console.log("chunks : ",chunks);
+      body=body +chunks.toString();
+      console.log("body : ",body);
+    });
+    req.on('end',async()=>{
+      let _id= new ObjectId(body);
+      await collection.deleteOne({_id})
+      .then((message)=>{
+        console.log("deletion successful : ",message);
+        res.writeHead(200,{"Content-type":"text/plain"});
+        res.end("success");
+      })
+      .catch((error)=>{
+        console.log("deletion failed : ",error);
+        res.writeHead(200,{"Content-type":"text/plain"});
+        res.end("failed");
       })
     })
    }
@@ -181,7 +205,7 @@ const server = http.createServer(async(req,res)=>{
 async function connect(){
     await client.connect()
      .then((message)=>{
-        console.log("database connection established");
+        console.log("database connection established",message);
      })
       .catch((error)=>{
         console.log("Database connection error : ",error);
