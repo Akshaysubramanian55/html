@@ -3,18 +3,24 @@
     padding: 0px;
     box-sizing: border-box;
 }
-h2{
-    text-align: center;
-    margin-top: 20px;
+.todolist{
+    background-color: aquamarine;
+    height: 100vh;
 }
-.class{
+
+.head{
+    text-align: center;
+   padding: 20px;
+    
+}
+.class {
+    
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 30px;
 }
 .class button{
-    margin-left: 30px;
     background-color: yellow;
 }
 table{
@@ -31,7 +37,9 @@ table,th,tr{
   border: none;
   background-color: orange;
   padding: 10px;
-  float: left;
+ margin-left: 40%;
+ margin-top: 25%;
+ 
   font-size: 16px;
 }
 #mybutton{
@@ -39,7 +47,8 @@ table,th,tr{
     padding: 10px;
 }
 .add{
-    margin-top: 20px;
-   margin-left: 40%;
+    
+   background-color: aqua;
+   height: 100vh;
    
 }
