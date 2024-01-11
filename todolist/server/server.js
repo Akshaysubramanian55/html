@@ -7,7 +7,7 @@ const { MongoClient, ObjectId }=require('mongodb');
 const client = new MongoClient("mongodb://127.0.0.1:27017");
 
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async(req, res) => {
 
     const db=client.db("user");
     const collection=db.collection("users_coll");
@@ -27,6 +27,9 @@ const server = http.createServer((req, res) => {
     } else if (parsed_url.pathname === '/add.html') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(fs.readFileSync('../add.html'));
+    }else if(parsed_url.pathname==='/script.js'){
+      res.writeHead(200,{'Content-Type': 'text/javascript'});
+      res.end(fs.readFileSync('../script.js'));
     }
     if( req.method==="POST"&&parsed_url.pathname==="/submit"){
         console.log("Form submitted successfully");
@@ -63,7 +66,18 @@ const server = http.createServer((req, res) => {
          });
 
     }
-        })
+
+    if(req.method==="GET" && parsed_url.pathname==="/getData"){
+      let data=await collection.find().toArray();
+      console.log("data : ",data);
+
+      let json_data=JSON.stringify(data);
+      console.log("jsondata : ",json_data);
+
+      res.writeHead(200,{"Content-Type": "text/json"});
+      res.end(json_data);
+    }
+        });
 
 
 
