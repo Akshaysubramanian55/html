@@ -67,17 +67,17 @@ const server = http.createServer(async(req, res) => {
 
     }
 
-    if(req.method==="GET" && parsed_url.pathname==="/getData"){
-      let data=await collection.find().toArray();
-      console.log("data : ",data);
+  if (req.method === "GET" && parsed_url.pathname === "/getData") {
+    let data = await collection.find().toArray();
+    console.log("data : ", data);
 
-      let json_data=JSON.stringify(data);
-      console.log("jsondata : ",json_data);
+    let json_data = JSON.stringify(data);
+    console.log("jsondata : ", json_data);
 
-      res.writeHead(200,{"Content-Type": "text/json"});
-      res.end(json_data);
-    }
-        });
+    res.writeHead(200, { "Content-Type": "text/json" });
+    res.end(json_data);
+  }
+});
 
 
 
