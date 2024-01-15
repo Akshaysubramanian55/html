@@ -1,0 +1,39 @@
+ *{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+ }
+ .container{
+    height: 60vh;
+    border: 1px solid black;
+    background-color: brown;
+}
+.box{
+   
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#name,#email,#password,#submit{
+    margin-top: 20px;
+}
+#submit{
+    margin-left: 100px;
+}
+label{
+    margin-right: 20px;
+}
+
+ul li a{
+    text-decoration: none;
+    background-color: aqua;
+    
+}
+table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
+
+
