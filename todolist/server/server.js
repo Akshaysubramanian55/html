@@ -77,6 +77,31 @@ const server = http.createServer(async(req, res) => {
     res.writeHead(200, { "Content-Type": "text/json" });
     res.end(json_data);
   }
+
+  
+  if(req.method ==="DELETE"&& parsed_url.pathname==="/deleteData"){
+    console.log("reached delete route");
+    let body ="";
+    req.on('data',(chunks)=>{
+      console.log("chunks : ",chunks);
+      body=body +chunks.toString();
+      console.log("body : ",body);
+    });
+    req.on('end',async()=>{
+      let _id= new ObjectId(body);
+      await collection.deleteOne({_id})
+      .then((message)=>{
+        console.log("deletion successful : ",message);
+        res.writeHead(200,{"Content-type":"text/plain"});
+        res.end("success");
+      })
+      .catch((error)=>{
+        console.log("deletion failed : ",error);
+        res.writeHead(200,{"Content-type":"text/plain"});
+        res.end("failed");
+      })
+    })
+   }
 });
 
 

@@ -27,3 +27,25 @@ async function getuserdata(){
  function handleEdit(){
     document.getElementById("tbody").innerHTML = "completed";
  }
+ async function handleDelete(id){
+    console.log("id : ",id);
+ 
+    let response = await fetch('http://localhost:3000/deleteData',{
+       "method":"DELETE",
+       "headers":{
+          "content-Type":"text/plain"
+       },
+       "body":id,
+    });
+    console.log("response: ",response);
+    let parsed_response = await response.text();
+    console.log("parsed_response : ",parsed_response);
+ 
+    if(parsed_response ==="success"){
+       alert("success");
+    }else{
+       alert("failed");
+    }
+ 
+ }
+ 
