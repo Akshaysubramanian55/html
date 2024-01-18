@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-let { MongoClient, ObjectId, Collection } = require('mongodb');
+let { MongoClient, ObjectId} = require('mongodb');
 dotenv.config();
 let port = process.env.PORT;
 
@@ -22,12 +22,14 @@ app.get('/test', (req, res, next) => {
 console.log("__dirname", __dirname);
 app.use('/', express.static(__dirname + "/client"));
 app.use(express.urlencoded({ extended: false }));//to parse form data
-app.use(express.json);//to parse json data
+app.use(express.json());//to parse json data
 
 app.post('/submit', async (req, res) => {
     let data = req.body;
     console.log("datas :", data);
-    await Collection.insertOne(data)
+
+
+    await collection.insertOne(data)
         .then((message) => {
             console.log("Document submited successfully");
             res.status(201).send("success");
@@ -48,7 +50,7 @@ app.get('/getData', async (req, res) => {
     res.status(200).send(json_data);
 })
 
-app.put('/editData', async (req, rers) => {
+app.put('/editData', async (req, res) => {
     let data = req.body;
     console.log("data", data);
 
@@ -73,7 +75,29 @@ app.put('/editData', async (req, rers) => {
             console.log("Document not updated : ", error);
             res.status(400).send("failed");
         })
-});
+})
+
+app.delete('/deleteData',async(req,res)=>{
+    let data = req.body;
+    console.log("data", data);
+
+
+    let id = data.id;
+    console.log("id : ", id);
+
+    let _id = new ObjectId(id);
+    console.log("_id : ", _id);
+
+    await collection.deleteOne({_id})
+    .then((message)=>{
+      console.log("deletion successful : ",message);
+      res.status(200).send("success");
+    })
+    .catch((error)=>{
+      console.log("deletion failed : ",error);
+      res.status(400).send("failed");
+    })
+})
 
 
 
