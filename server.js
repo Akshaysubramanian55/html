@@ -23,6 +23,7 @@ console.log("__dirname", __dirname);
 app.use('/', express.static(__dirname + "/client"));
 app.use(express.urlencoded({ extended: false }));//to parse form data
 app.use(express.json());//to parse json data
+app.use(express.text());
 
 app.post('/submit', async (req, res) => {
     let data = req.body;
@@ -79,10 +80,10 @@ app.put('/editData', async (req, res) => {
 
 app.delete('/deleteData',async(req,res)=>{
     let data = req.body;
-    console.log("data", data);
+    console.log("body", data);
 
 
-    let id = data.id;
+    let id = data;
     console.log("id : ", id);
 
     let _id = new ObjectId(id);
