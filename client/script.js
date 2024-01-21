@@ -9,7 +9,7 @@ async function getuserdata(){
    let content='';
 
    for(let i=0;i<parsedUserData.length;i++){
-       content= content + `
+     content= content + `
      <tr>
      <td>${parsedUserData[i]._id}</td>
      <td><input type="text" name="name" id="name-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true"</td>
@@ -73,7 +73,8 @@ async function handleSave(id){
          "content-Type":"application/json"
       },
       "body":json_data
-   })
+   });
+   
 }
 
 async function handleDelete(id){
