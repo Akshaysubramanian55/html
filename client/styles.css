@@ -15,14 +15,15 @@
     justify-content: center;
     align-items: center;
 }
-#name,#email,#password,#submit{
+#name,#email,#password{
     margin-top: 20px;
 }
 #submit{
-    margin-left: 100px;
+   margin-left: 150px;
+   color: black;
 }
 label{
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 ul li a{
@@ -34,6 +35,12 @@ table,th,td{
     border: 2px solid black;
     border-collapse: collapse;
     padding: 8px;
+}
+#name-error,#email-error,#password-error{
+    color:blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

@@ -153,3 +153,19 @@ function validatename(){
       return
    }
 }
+
+function validateemail(){
+   let email=document.getElementById('email').value;
+   let email_error=document.getElementById('email-error');
+
+   let email_regex=/^[a-z0-9_-]*@([a-z0-9]+)*(\.[a-z]{2,3})$/i;
+
+   let isemailvalid=email_regex.test(email);
+   console.log("isemailvalid : ",isemailvalid);
+
+   if(!isemailvalid){
+      email_error.innerHTML="invalid email";
+   }else{
+      email_error.innerHTML=""
+   }
+}
