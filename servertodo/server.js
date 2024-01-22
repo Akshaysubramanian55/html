@@ -10,7 +10,7 @@ const db = client.db("todo");
 const collection = db.collection("todo_coll");
 
 console.log("__dirname", __dirname);
-app.use('/', express.static(__dirname + "/todolist"));
+app.use('/', express.static(__dirname + "../todolist"));
 app.use(express.urlencoded({ extended: false }));//to parse form data
 app.use(express.json());//to parse json data
 app.use(express.text());

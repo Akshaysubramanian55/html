@@ -5,13 +5,13 @@ async function getuserdata(){
     let parsedUserData = await userData.json();
     console.log("parseruserData : ",parsedUserData);
  
-    let tbody =document.getElementById('tasklist');
+    let tasklist =document.getElementById('tasklist');
     let content='';
  
     for(let i=0;i<parsedUserData.length;i++){
         content= content + `
         <ul>
-        <li><input type="text" name="addtask" id=addtask-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true"
+        <li><input type="text" name="addtask" id=addtask-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true">
         <button onclick="handleEdit('${parsedUserData[i]._id}')">Edit</button>
         <button onclick="handleSave('${parsedUserData[i]._id}')">Save</button>
         <button onclick="handleDelete('${parsedUserData[i]._id}')">Delete</button>
