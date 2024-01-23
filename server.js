@@ -30,6 +30,14 @@ app.post('/submit', async (req, res) => {
     console.log("datas :", data);
 
 
+// validation
+
+
+    if(!isnamevalid){
+        res.status(400).send("invalid name")
+    }
+
+
     await collection.insertOne(data)
         .then((message) => {
             console.log("Document submited successfully");

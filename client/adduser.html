@@ -11,16 +11,16 @@
      <div class="box">
         <form  >
             <div><label for="name" >Enter Your Name</label>
-            <input type="name" name="name" id="name" placeholder="Enter Your Name">
-            <div id="name-error">invalid name</div>
+            <input type="name" name="name" id="name" placeholder="Enter Your Name" onkeyup="validatename()">
+            <div id="name-error"></div>
           </div>
            <div> <label for="email">Enter Your E-mail</label>
-            <input type="email" name="email" id="email" placeholder=" Enter Your Email">
-            <div id="email-error">invalid email</div>
+            <input type="email" name="email" id="email" placeholder=" Enter Your Email" onkeyup="validateemail()">
+            <div id="email-error"></div>
           </div>
            <div> <label for="password">Enter Your Password</label>
-            <input type="password" name="password" id="password" placeholder="Enter Your Password">
-            <div id="password-error">invalid password</div>
+            <input type="password" name="password" id="password" placeholder="Enter Your Password" onkeyup="validatepassword()">
+            <div id="password-error"></div>
           </div>
           <div>  <button type="button" onclick="submitform()" id="Submit">Submit</button></div>
          </form>

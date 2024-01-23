@@ -135,15 +135,20 @@ async function handleDelete(id){
 
 }
 
-function validatename(){
+async function validatename(){
    let name=document.getElementById('name').value;
 
    let name_error=document.getElementById('name-error');
 
-   let name_regex=/^[A-za-z]{2-30}( [a-zA-Z]{2-30})?$/
+   let name_regex=/^[A-za-z]{2,30}( [a-zA-Z]{2,30})?$/;
 
    let isnamevalid=name_regex.test(name);
    console.log("isnamevalid: ",isnamevalid);
+
+
+   let parsed_response = await response.text();
+   
+
 
    if(!isnamevalid){
       name_error.innerHTML="Invalid Name";
@@ -152,13 +157,14 @@ function validatename(){
       name_error.innerHTML="";
       return
    }
+  
 }
 
 function validateemail(){
    let email=document.getElementById('email').value;
    let email_error=document.getElementById('email-error');
 
-   let email_regex=/^[a-z0-9_-]*@([a-z0-9]+)*(\.[a-z]{2,3})$/i;
+   let email_regex=/^[a-z0-9_-]*@([a-z0-9]+)*(\.[a-z]{2,3})$/i
 
    let isemailvalid=email_regex.test(email);
    console.log("isemailvalid : ",isemailvalid);
@@ -167,5 +173,21 @@ function validateemail(){
       email_error.innerHTML="invalid email";
    }else{
       email_error.innerHTML=""
+   }
+}
+
+function validatepassword(){
+
+   let password=document.getElementById('password').value;
+   let password_error=document.getElementById('password-error');
+
+   let password_regex =/^[a-z0-9,-=_@\.]{6,}$/;
+   let ispasswordvalid=password_regex.test(password);
+   console.log("ispasswordvalid : ",ispasswordvalid);
+
+   if(!ispasswordvalid){
+      password_error.innerHTML="invalid password";
+   }else{
+      password_error.innerHTML=""
    }
 }

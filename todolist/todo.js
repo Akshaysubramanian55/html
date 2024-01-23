@@ -11,7 +11,7 @@ async function getuserdata(){
     for(let i=0;i<parsedUserData.length;i++){
         content= content + `
         <ul>
-        <li><input type="text" name="addtask" id=addtask-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true">
+        <li><input type="text" name="name" id=name-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true">
         <button onclick="handleEdit('${parsedUserData[i]._id}')">Edit</button>
         <button onclick="handleSave('${parsedUserData[i]._id}')">Save</button>
         <button onclick="handleDelete('${parsedUserData[i]._id}')">Delete</button>
@@ -28,7 +28,7 @@ function handleEdit(id){
     let _id=id;
     console.log("id : ",_id);
  
-    let name=document.getElementById(`addtask-${_id}`);
+    let name=document.getElementById(`name-${_id}`);
     console.log("name : ",name);
     name.disabled=false;
 } 
@@ -38,12 +38,7 @@ async function handleSave(id){
     let name=document.getElementById(`name-${id}`).value;
     console.log("edit : ",name);
  
-    let email=document.getElementById(`email-${id}`).value;
-    console.log("email : ",email);
- 
-    let password=document.getElementById(`password-${id}`).value;
-    console.log("password : ",password);
- 
+    
     let data ={
        id,
        name,
