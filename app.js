@@ -9,6 +9,10 @@ dotenv.config();
 app.use(express.static(__dirname+"/client"));
 app.use(express.json());
 
+app.get('/test',(req,res)=>{
+    res.status(200).send("success");
+});
+
 app.post('/submit',(req,res)=>{
     const body=req.body;
 
@@ -28,10 +32,10 @@ app.post('/submit',(req,res)=>{
         dataArr.push(body);
         let json_data=JSON.stringify(dataArr);
 
-        fs.writeFile(filepath,json_data,(err)=>{
+        fs.writeFileSync(filepath,json_data,(err)=>{
             if(err){
                 res.status(400).send("failed");
-            }else{
+            }else{[{"name":"john","email":"john@gmail.com","password":"john123"},{"name":"john123","email":"john@gmail.com","password":"john123"}]
                 res.status(201).send("success");
             }
         });
@@ -43,7 +47,7 @@ app.post('/submit',(req,res)=>{
 
         let json_data=JSON.stringify(parsedFileContent);
 
-        fs.writeFile(filepath,json_data,(err)=>{
+        fs.writeFileSync(filepath,json_data,(err)=>{
             if(err){
                 res.status(400).send("failed");
             }else{
@@ -52,3 +56,34 @@ app.post('/submit',(req,res)=>{
         })
     }
 })
+
+app.get('/getData',  (req, res) => {
+
+    const folderPath = './datas';
+    const fileName = 'datas.json';
+    const filePath = path.join(folderPath, fileName);
+
+    if (!fs.existsSync(filePath)) {
+        res.status(400).send('Data not found');
+    } else {
+        const fileContent = fs.readFileSync(filePath, "utf-8");
+        const dataArr = JSON.parse(fileContent);
+
+        res.status(200).send(dataArr);
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(process.env.PORT,()=>{
+    console.log(`server running at http://localhost:${process.env.PORT}`);
+});

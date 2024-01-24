@@ -7,7 +7,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "devv": "nodemon server1.js",
-    "app":"nodemon app.js"
+    "app": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
