@@ -73,7 +73,53 @@ app.get('/getData',  (req, res) => {
     }
 })
 
+app.delete('/deleteData',  (req, res) => {
+    
+    let data = req.body;
+    console.log("body", data);
 
+    const { id } = req.params;
+    const folderPath = './datas';
+    const fileName = 'datas.json';
+    const filePath = path.join(folderPath, fileName);
+
+
+    if (!fs.existsSync(filePath)) {
+        res.status(400).send('Data not found');
+    }
+    let fileContent =fs.readFileSync(filePath,"utf-8");
+    console.log("fileContent: ",fileContent);
+
+      
+  
+     
+      
+        
+      let dataArr = JSON.parse(fileContent);
+      console.log("dataARr: ",dataArr);
+  
+      const dataIndex = dataArr.findIndex(item => item.id == id);
+  
+      console.log("dataIndex: ",dataIndex)
+      if (dataIndex === -1) {
+        res.status(404).send("Data not found");
+      }else{
+        // Delete the specific item at the found index
+      dataArr.splice(dataIndex,1);
+  
+  
+      // Write the updated data (without the deleted item) back to the file
+       fs.writeFileSync(filePath, JSON.stringify(dataArr));
+  
+      res.status(200).send("success");
+      }
+  
+      
+      
+  
+     
+  });
+  
 
 
 

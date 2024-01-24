@@ -103,7 +103,7 @@ async function handleSave(id){
 
    let json_data= JSON.stringify(data);
 
-   await fetch('editData',{
+   await fetch('/editData',{
       "method":"PUT",
       "headers":{
          "content-Type":"application/json"
