@@ -52,6 +52,19 @@ app.post('/submit',async(req,res)=>{
 
 })
 
+app.get('/getData',async(req,res)=>{
+
+
+  try {
+    const users = await model.find();
+    res.status(200).json(users);
+} catch (error) {
+    console.error("Error fetching users:", error.message);
+    res.status(500).send("Internal Server Error");
+}
+});
+
+
 
 
 async function connect() {
