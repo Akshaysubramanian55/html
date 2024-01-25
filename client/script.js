@@ -146,7 +146,7 @@ async function validatename(){
    console.log("isnamevalid: ",isnamevalid);
 
 
-   let parsed_response = await response.text();
+   // let parsed_response = await response.text();
    
 
 

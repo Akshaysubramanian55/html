@@ -73,6 +73,53 @@ app.get('/getData',  (req, res) => {
     }
 })
 
+
+
+
+
+app.put('/editData', (req, res) => {
+    const editId = req.params.id;
+    const editData = req.body;
+    
+    const folderpath = './datas';
+    const fileName = 'datas.json';
+    const filePath = path.join(folderpath, fileName);
+
+    if (!fs.existsSync(folderpath)) {
+        fs.mkdirSync(folderpath, { recursive: true });
+    }
+
+    let fileContent = fs.readFileSync(filePath, 'utf-8');
+    let dataArr = [];
+
+    if (fileContent !== '') {
+        dataArr = JSON.parse(fileContent);
+
+        const existingDataIndex = dataArr.findIndex(item => item.id === editId);
+
+        if (existingDataIndex !== -1) {
+            // Replace existing data with new data
+            dataArr[existingDataIndex] = { id: editId, ...editData };
+            const updatedJsonData = JSON.stringify(dataArr);
+
+            fs.writeFile(filePath, updatedJsonData, (err) => {
+                if (err) {
+                    res.status(400).send('failed to update');
+                } else {
+                    res.status(200).send('success');
+                }
+            });
+        } else {
+            res.status(404).send('data not found');
+        }
+    } else {
+        res.status(404).send('file not found');
+    }
+});
+
+
+
+
 app.delete('/deleteData',  (req, res) => {
     
     let data = req.body;
