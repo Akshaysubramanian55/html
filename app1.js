@@ -10,6 +10,7 @@ port=process.env.PORT;
 app.use(express.static(__dirname+"/client"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(express.text());
 
 
 //schema
@@ -55,14 +56,40 @@ app.post('/submit',async(req,res)=>{
 app.get('/getData',async(req,res)=>{
 
 
-  try {
+  
     const users = await model.find();
-    res.status(200).json(users);
-} catch (error) {
-    console.error("Error fetching users:", error.message);
-    res.status(500).send("Internal Server Error");
-}
+    res.status(200).send(users);
+
 });
+
+
+  app.delete('/deleteData',async(req,res)=>{
+    let data = req.body;
+    console.log("body", data);
+
+
+    let id = data;
+    console.log("id : ", id);
+
+    let _id = mongoose.Types.ObjectId(id);;
+    console.log("_id : ", _id);
+
+
+  
+
+  await model.deleteOne(_id)
+    .then((message) => {
+      console.log("Document deleted successfully");
+      res.status(201).send("success");
+    })
+    .catch((error) => {
+      console.log("Document deletion failed");
+      res.status(400).send("failed");
+    })
+
+});
+
+
 
 
 
