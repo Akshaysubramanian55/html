@@ -65,28 +65,50 @@ exports.getUserData=async function (req,res){
     
 
 exports.updateUser=async function (req,res){
-    async function updateUser(req, res) {
-        try {
-            const userId = req.params.id;  // Assuming you're passing the user ID through the URL parameters.
-            const updatedData = req.body;   // Assuming you're sending updated data in the request body.
-    
-            // Assuming 'users' is a model or database object that has an 'updateOne' method.
-            const result = await users.updateOne({ _id: userId }, { $set: updatedData });
-    
-            if (result.modifiedCount > 0) {
-                res.status(200).send("User updated successfully");
-            } else {
-                res.status(404).send("User not found or no changes made");
-            }
-        } catch (error) {
-            console.error("Error updating user:", error);
-            res.status(500).send("Internal Server Error");
-        }
+    let data = req.body;
+    console.log("data", data);
+    let id = data.id;
+    console.log("id : ", id);
+  
+    let _id = new mongoose.Types.ObjectId(id);
+    console.log("_id : ", _id);
+  
+    let updateDatas = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
     }
+    await model.updateOne({ _id }, { $set: updateDatas })
+        .then((message) => {
+            console.log("Document updated successfully : ", message);
+            res.status(200).send("Document updated successfully");
+        })
+        .catch((error) => {
+            console.log("Document not updated : ", error);
+            res.status(400).send("failed");
+        })
     
 }
 exports.deleteUser= async function (req,res){
+    let data = req.body;
+    console.log("body", data);
 
+    let id = data;
+    console.log("id : ", id);
+
+    let _id =new mongoose.Types.ObjectId(id);
+    console.log("_id : ", _id);
+
+
+   model.findByIdAndDelete(_id)
+   .then((message)=>{
+    console.log("deleted successfully");
+    res.status(200).send("success");
+   })
+   .catch((error)=>{
+    console.log("deleted successfully");
+    res.status(200).send("failed");
+   })
 }
 
 

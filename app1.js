@@ -30,6 +30,8 @@ let schema =new mongoose.Schema({
   },
 })
 
+
+
 //compiling scema to model
 
 const model=mongoose.model("users",schema);
@@ -63,32 +65,54 @@ app.get('/getData',async(req,res)=>{
 });
 
 
-  app.delete('/deleteData',async(req,res)=>{
-    let data = req.body;
-    console.log("body", data);
+app.put('/editData', async (req, res) => {
+  let data = req.body;
+  console.log("data", data);
+  let id = data.id;
+  console.log("id : ", id);
 
+  let _id = new mongoose.Types.ObjectId(id);
+  console.log("_id : ", _id);
+
+  let updateDatas = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+  }
+  await model.updateOne({ _id }, { $set: updateDatas })
+      .then((message) => {
+          console.log("Document updated successfully : ", message);
+          res.status(200).send("Document updated successfully");
+      })
+      .catch((error) => {
+          console.log("Document not updated : ", error);
+          res.status(400).send("failed");
+      })
+})
+
+
+app.delete('/deleteData',(req,res)=>{
+
+  let data = req.body;
+    console.log("body", data);
 
     let id = data;
     console.log("id : ", id);
 
-    let _id = mongoose.Types.ObjectId(id);;
+    let _id =new mongoose.Types.ObjectId(id);
     console.log("_id : ", _id);
 
 
-  
-
-  await model.deleteOne(_id)
-    .then((message) => {
-      console.log("Document deleted successfully");
-      res.status(201).send("success");
-    })
-    .catch((error) => {
-      console.log("Document deletion failed");
-      res.status(400).send("failed");
-    })
-
-});
-
+   model.findByIdAndDelete(_id)
+   .then((message)=>{
+    console.log("deleted successfully");
+    res.status(200).send("success");
+   })
+   .catch((error)=>{
+    console.log("deleted successfully");
+    res.status(200).send("failed");
+   })
+})
 
 
 

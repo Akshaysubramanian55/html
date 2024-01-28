@@ -65,6 +65,7 @@ app.put('/editData', async (req, res) => {
             res.status(400).send("failed");
         })
 })
+
 app.delete('/deleteData',async(req,res)=>{
     let data = req.body;
     console.log("body", data);
