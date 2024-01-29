@@ -19,6 +19,14 @@ app.post('/submit', async (req, res) => {
     let data = req.body;
     console.log("datas :", data);
 
+    const isUserExist =await collection.findOne({email:data.email});
+        console.log("isUserExist : ",isUserExist);
+
+        if(isUserExist){
+            res.status(400).send("user already exists");
+            return;
+        }
+
 
     await collection.insertOne(data)
         .then((message) => {
@@ -53,6 +61,15 @@ app.put('/editData', async (req, res) => {
 
     let updateDatas = {
         name: data.name,
+        
+    }
+
+    const isUserExist =await collection.findOne({email:data.email});
+    console.log("isUserExist : ",isUserExist);
+
+    if(isUserExist){
+        res.status(400).send("useralready exists");
+        return;
         
     }
     await collection.updateOne({ _id }, { $set: updateDatas })

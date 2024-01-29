@@ -32,11 +32,13 @@ app.post('/submit', async (req, res) => {
 
 // validation
 
+const isUserExist =await collection.findOne({email:data.email});
+        console.log("isUserExist : ",isUserExist);
 
-    if(!isnamevalid){
-        res.status(400).send("invalid name")
-    }
-
+        if(isUserExist){
+            res.status(400).send("user already exists");
+            return;
+        }
 
     await collection.insertOne(data)
         .then((message) => {
@@ -74,6 +76,15 @@ app.put('/editData', async (req, res) => {
         name: data.name,
         email: data.email,
         password: data.password,
+    }
+
+    const isUserExist =await collection.findOne({email:data.email});
+    console.log("isUserExist : ",isUserExist);
+
+    if(isUserExist){
+        res.status(400).send("useralready exists");
+        return;
+        
     }
     await collection.updateOne({ _id }, { $set: updateDatas })
         .then((message) => {

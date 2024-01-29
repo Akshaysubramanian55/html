@@ -17,5 +17,6 @@ app.use(userRoutes);
 //Database Connection
 connect();
 app.listen(process.env.PORT,()=>{
-    console.log(`server listening at http://192.168.150.76:${process.env.PORT}`);
+    // console.log(`server listening at http://192.168.150.76:${process.env.PORT}`);
+    console.log(`server listening at http://localhost:${process.env.PORT}`);
 });

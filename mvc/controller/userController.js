@@ -18,21 +18,24 @@ exports.createUser=async function (req,res){
                 message:"user already exist",
             })
             res.status(response.statusCode).send(response);
+           
         }
-        const new_user=await users.create(datas);
-        
-        if(new_user){
-            let response=success_function({
-                statusCode:201,
-                data:new_user,
-                message:"user created successfully",
+
+        const new_user = await users.create(datas);
+        if (new_user) {
+            let response = success_function({
+                statusCode: 201,
+                data: new_user,
+                message: "user created successfully",
             })
             res.status(response.statusCode).send(response);
             return;
-        }else{
+        } else {
             res.status(400).send("failed");
             return;
-        }
+        } 
+        
+       
     }catch(error){
         let response=error_function({
             statusCode:400,
@@ -78,6 +81,18 @@ exports.updateUser=async function (req,res){
         name: data.name,
         email: data.email,
         password: data.password,
+    }
+
+    const isUserExist =await users.findOne({email:data.email});
+    console.log("isUserExist : ",isUserExist);
+
+    if(isUserExist){
+        let response=error_function({
+            statusCode:400,
+            message:"user already exist",
+        })
+        res.status(response.statusCode).send(response);
+        return;
     }
     await users.updateOne({ _id }, { $set: updateDatas })
         .then((message) => {

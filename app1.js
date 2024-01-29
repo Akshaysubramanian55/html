@@ -43,6 +43,14 @@ app.post('/submit',async(req,res)=>{
 
     //save to database
 
+    const isUserExist =await model.findOne({email:data.email});
+        console.log("isUserExist : ",isUserExist);
+
+        if(isUserExist){
+            res.status(400).send("user already exists");
+            return;
+        }
+
     await model.create(data)
     .then((message)=>{
      console.log("Document inserted successfully");
@@ -79,6 +87,17 @@ app.put('/editData', async (req, res) => {
       email: data.email,
       password: data.password,
   }
+
+  const isUserExist =await model.findOne({email:data.email});
+    console.log("isUserExist : ",isUserExist);
+
+    if(isUserExist){
+        res.status(400).send("useralready exists");
+        return;
+        
+    }
+
+
   await model.updateOne({ _id }, { $set: updateDatas })
       .then((message) => {
           console.log("Document updated successfully : ", message);

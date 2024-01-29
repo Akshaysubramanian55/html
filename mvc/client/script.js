@@ -14,7 +14,8 @@ async function submitform(){
       password,
    }
    let json_data=JSON.stringify(data);
-   let response= await fetch('http://192.168.150.134:3001/submit',{
+   // let response= await fetch('http://192.168.150.134:3001/submit',{
+    let response= await fetch('/submit',{
      "method":"POST",
      "headers":{
       "Content-Type":"application/json",
