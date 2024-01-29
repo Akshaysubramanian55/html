@@ -1,4 +1,5 @@
 const users =require('../db/models/users');
+const mongoose=require('mongoose');
 const { error_function, success_function } = require('../utils/response-handler');
 
 
@@ -78,7 +79,7 @@ exports.updateUser=async function (req,res){
         email: data.email,
         password: data.password,
     }
-    await model.updateOne({ _id }, { $set: updateDatas })
+    await users.updateOne({ _id }, { $set: updateDatas })
         .then((message) => {
             console.log("Document updated successfully : ", message);
             res.status(200).send("Document updated successfully");
@@ -91,7 +92,7 @@ exports.updateUser=async function (req,res){
 }
 exports.deleteUser= async function (req,res){
     let data = req.body;
-    console.log("body", data);
+    console.log("data", data);
 
     let id = data;
     console.log("id : ", id);
@@ -100,7 +101,7 @@ exports.deleteUser= async function (req,res){
     console.log("_id : ", _id);
 
 
-   model.findByIdAndDelete(_id)
+   users.findByIdAndDelete(_id)
    .then((message)=>{
     console.log("deleted successfully");
     res.status(200).send("success");

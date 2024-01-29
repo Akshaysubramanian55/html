@@ -14,7 +14,7 @@ async function submitform(){
       password,
    }
    let json_data=JSON.stringify(data);
-   let response= await fetch('/submit',{
+   let response= await fetch('http://192.168.150.134:3001/submit',{
      "method":"POST",
      "headers":{
       "Content-Type":"application/json",
@@ -191,5 +191,15 @@ function validatepassword(){
       password_error.innerHTML=""
    }
 }
+async function testAPI(){
+   let response =await fetch('http://192.168.150.134:3001/test');
 
+   let parsed_response=await response.json();
+   console.log("parsed_response : ",parsed_response);
 
+   if(parsed_response){
+      alert(parsed_response.message)
+   }else{
+      alert("someting went wrong")
+   }
+}
