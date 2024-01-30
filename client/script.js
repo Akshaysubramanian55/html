@@ -48,9 +48,11 @@ async function getuserdata(){
      content= content + `
      <tr>
      <td>${parsedUserData[i]._id}</td>
-     <td><input type="text" name="name" id="name-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true"</td>
-     <td><input type="email" name="email" id="email-${parsedUserData[i]._id}" value="${parsedUserData[i].email}" disabled="true"</td>
-     <td><input type="password" name="password"  id="password-${parsedUserData[i]._id}" value="${parsedUserData[i].password}" disabled="true"</td>
+     <td><input type="text" name="name" class="name" id="name-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true" onkeyup="validateName('${parsedUserData[i]._id}')"</td>
+     <td><input type="email" name="email" class="email" id="email-${parsedUserData[i]._id}" value="${parsedUserData[i].email}" disabled="true" onkeyup="validateEmail('${parsedUserData[i]._id}')"</td>
+     <td><input type="password" name="password"  id="password-${parsedUserData[i]._id}" value="${parsedUserData[i].password}" disabled="true"  onkeyup=" ValidatePassWord('${parsedUserData[i]._id}')" </td>
+
+
      <td><button onclick="handleEdit('${parsedUserData[i]._id}')">Edit</button></td>
      <td><button onclick="handleSave('${parsedUserData[i]._id}')">Save</button></td>
      <td><button onclick="handleDelete('${parsedUserData[i]._id}')">Delete</button></td>
@@ -73,15 +75,87 @@ function handleEdit(id){
    console.log("name : ",name);
    name.disabled=false;
 
+
+   
+
    let email=document.getElementById(`email-${_id}`);
    console.log("email : ",email);
    email.disabled=false;
-
+   
+   
+   
+ 
+   
 
    let password=document.getElementById(`password-${_id}`);
    console.log("password : ",password);
    password.disabled=false;
+
+   
 }
+
+
+function validateName(id){
+let _id=id;
+   console.log("id : ",_id);
+
+   let name=document.getElementById(`name-${_id}`);
+   console.log("name : ",name);
+   
+   
+   test=name.value;
+
+   let name_regex=/^[A-za-z]{2,30}( [a-zA-Z]{2,30})?$/;
+
+   let isnamevalid=name_regex.test(test);
+   console.log("isnamevalid: ",isnamevalid);
+
+   name.style.backgroundColor= isnamevalid? 'green' : 'red';
+}
+
+  function validateEmail(id){
+   let _id=id;
+   console.log("id : ",_id);
+
+   let email=document.getElementById(`email-${_id}`);
+   console.log("email : ",email);
+   
+   
+   test=email.value;
+
+
+   let email_regex=/^[a-z0-9_-]*@([a-z0-9]+)*(\.[a-z]{2,3})$/i
+
+   let isemailvalid=email_regex.test(test);
+   console.log("isemailvalid : ",isemailvalid);
+
+   email.style.backgroundColor= isemailvalid? 'green' : 'red';
+
+
+}
+
+function ValidatePassWord(id){
+   let _id=id;
+   console.log("id : ",_id);
+
+   let password=document.getElementById(`password-${_id}`);
+   console.log("password : ",password);
+   
+   
+   test=password.value;
+
+   let password_regex =/^[a-z0-9,-=_@\.]{6,}$/;
+   let ispasswordvalid=password_regex.test(test);
+   console.log("ispasswordvalid : ",ispasswordvalid);
+
+
+   password.style.backgroundColor= ispasswordvalid? 'green' : 'red';
+
+}
+
+
+   
+
 async function handleSave(id){
    
 
@@ -159,6 +233,9 @@ async function validatename(){
    }
   
 }
+
+
+
 
 function validateemail(){
    let email=document.getElementById('email').value;

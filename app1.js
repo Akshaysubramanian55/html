@@ -88,7 +88,7 @@ app.put('/editData', async (req, res) => {
       password: data.password,
   }
 
-  const isUserExist =await model.findOne({email:data.email});
+  const isUserExist =await model.findOne({email:data.name});
     console.log("isUserExist : ",isUserExist);
 
     if(isUserExist){
