@@ -48,7 +48,10 @@ async function getuserdata(){
      content= content + `
      <tr>
      <td>${parsedUserData[i]._id}</td>
-     <td><input type="text" name="name" class="name" id="name-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true" onkeyup="validateName('${parsedUserData[i]._id}')"</td>
+     <td>
+     <input type="text" name="name" class="name" id="name-${parsedUserData[i]._id}" value="${parsedUserData[i].name}" disabled="true" onkeyup="validateName('${parsedUserData[i]._id}')" 
+     <div id="name1-${parsedUserData[i]._id}" ></div>
+     </td>
      <td><input type="email" name="email" class="email" id="email-${parsedUserData[i]._id}" value="${parsedUserData[i].email}" disabled="true" onkeyup="validateEmail('${parsedUserData[i]._id}')"</td>
      <td><input type="password" name="password"  id="password-${parsedUserData[i]._id}" value="${parsedUserData[i].password}" disabled="true"  onkeyup=" ValidatePassWord('${parsedUserData[i]._id}')" </td>
 
@@ -101,7 +104,8 @@ let _id=id;
 
    let name=document.getElementById(`name-${_id}`);
    console.log("name : ",name);
-   
+   let td = document.getElementById(`name1-${_id}`);
+    console.log("td : ", td);
    
    test=name.value;
 
@@ -110,7 +114,12 @@ let _id=id;
    let isnamevalid=name_regex.test(test);
    console.log("isnamevalid: ",isnamevalid);
 
-   name.style.backgroundColor= isnamevalid? 'green' : 'red';
+   name.style.backgroundColor= isnamevalid? 'green' : 'darkred';
+   if (!isnamevalid) {
+      td.innerHTML = "invalid";
+  } else {
+      td.innerHTML = ""; 
+  }
 }
 
   function validateEmail(id){
