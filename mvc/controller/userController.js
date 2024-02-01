@@ -26,9 +26,9 @@ exports.createUser=async function (req,res){
             let response = success_function({
                 statusCode: 201,
                 data: new_user,
-                message: "user created successfully",
+                message: "success",
             })
-            res.status(response.statusCode).send(response);
+            res.status(response.statusCode).send(response.message);
             return;
         } else {
             res.status(400).send("failed");

@@ -15,7 +15,7 @@ async function submitform(){
    }
    let json_data=JSON.stringify(data);
    // let response= await fetch('http://192.168.150.134:3001/submit',{
-    let response= await fetch('/submit',{
+    let response= await fetch('http://localhost:3100/user',{
      "method":"POST",
      "headers":{
       "Content-Type":"application/json",
@@ -28,6 +28,7 @@ async function submitform(){
 
    if (parsed_response==="success"){
       alert("submitted successfully");
+      window.location.href="login.html";
    }else{
       alert("submition failed");
    }
@@ -202,5 +203,49 @@ async function testAPI(){
       alert(parsed_response.message)
    }else{
       alert("someting went wrong")
+   }
+}
+
+
+
+async function login(){
+   let email = document.getElementById('login_email').value;
+   console.log("email : ",email);
+
+   let password = document.getElementById('login_password').value;
+   console.log("password : ", password);
+
+
+   let datas={
+      email,
+      password,
+   }
+
+   let json_data=JSON.stringify(datas);
+   console.log("json_data",json_data);
+
+   let response=await fetch('http://localhost:3100/login',{
+      method: "POST",
+      headers: {
+         "Content-Type": "application/json",
+      },
+      body:json_data,
+   });
+ 
+   let parsed_response=await response.json();
+   console.log("parsed_response : ",parsed_response);
+
+
+   if(parsed_response.success){
+      let token=parsed_response.data;
+      console.log("token : ",token);
+
+      localStorage.setItem('token',token);
+      window.location.href="getuser.html";
+      alert(parsed_response.message);
+      return;
+   }else{
+      alert(parsed_response.message);
+      return;
    }
 }
