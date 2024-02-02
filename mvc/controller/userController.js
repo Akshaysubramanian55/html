@@ -1,15 +1,20 @@
 const users =require('../db/models/users');
 const mongoose=require('mongoose');
+const bcrypt=require('bcryptjs')
 const { error_function, success_function } = require('../utils/response-handler');
 
 
 exports.createUser=async function (req,res){
     try{
-        const datas=req.body;
+        // const datas=req.body;
+
+        const name=req.body.name;
+        const email=req.body.email;
+        const password=req.body.password;
 
         //validate
 
-        const isUserExist =await users.findOne({email:datas.email});
+        const isUserExist =await users.findOne({email});
         console.log("isUserExist : ",isUserExist);
 
         if(isUserExist){
@@ -21,7 +26,25 @@ exports.createUser=async function (req,res){
            
         }
 
-        const new_user = await users.create(datas);
+
+        let salt=await bcrypt.genSalt(10);
+        console.log("salt : ",salt);
+
+        let hashed_password=bcrypt.hashSync(password,salt);
+        console.log("hashed_password : ",hashed_password);
+
+
+        const new_user = await users.create({
+            name,
+            email,
+            password:hashed_password,
+        });
+        let response_obj ={
+            name,
+            email,
+        }
+
+
         if (new_user) {
             let response = success_function({
                 statusCode: 201,
