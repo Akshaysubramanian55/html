@@ -40,7 +40,7 @@ exports.login=async function(req,res){
                 }else{
                     let response=error_function({
                         statusCode:400,
-                        message:error.message?error.message:error
+                        message:"Wrong Password"
                     });
                     res.status(response.statusCode).send(response);
                     return;

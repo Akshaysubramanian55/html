@@ -35,7 +35,13 @@
     margin-top: 10px;
 }
 #dropdown{
-    margin-left: 650px; 
+    margin-left: 950px; 
     height: 25px;
     margin-top: 10px;
+}
+.list_container,ul,li{
+    display: flex;
+    margin: 10px;
+    margin-left: 10px;
+    
 }
