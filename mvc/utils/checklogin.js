@@ -5,7 +5,7 @@ let jwt =require('jsonwebtoken');
 exports.checkLogin=async function(req,res,next){
     try {
 
-        let token =req.headers['authorization'].split('')[1];
+        let token =req.headers['authorization'].split(' ')[1];
         console.log("token : ",token);
 
         if(!token){

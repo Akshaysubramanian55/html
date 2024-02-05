@@ -74,7 +74,27 @@
 }
 #bodyy{
     background-color: red;
+
 }
 .list_right,ul{
     margin-left: 300px;
+}
+.card{
+    
+    margin-top: 100px;
+    margin-right: 50px;
+}
+#card_body{
+    font-size: 30px;
+    color:blue;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.5) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+#movie_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
