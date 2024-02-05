@@ -33,6 +33,8 @@ async function submitform(){
  }
 
 async function getMovieData() {
+
+   
     // Assuming the server endpoint for movie data is http://localhost:3000/getMovies
     let movieData = await fetch('/getMovies');
     let parsedMovieData = await movieData.json();
@@ -49,7 +51,7 @@ async function getMovieData() {
                     <h5 class="card-title">${parsedMovieData[i].title}</h5>
                     <h6 class="card-genre">${parsedMovieData[i].genre}</h6>
                     <h6 class="card-director">${parsedMovieData[i].director}</h6>
-                   
+                   <a href="details.html " onclick="deatailsmovie('${parsedMovieData[i]._id}')">Details</a>
                 </div>
             
         `;
@@ -62,6 +64,32 @@ async function getMovieData() {
 getMovieData();
 
 
-/* <button onclick="handleEdit('${parsedMovieData[i]._id}')">Edit</button>
-<button onclick="handleSave('${parsedMovieData[i]._id}')">Save</button>
-<button onclick="handleDelete('${parsedMovieData[i]._id}')">Delete</button> */
+async function deatailsmovie(id){
+   let _id=id;
+   console.log("id : ",_id);
+
+   // let movieData = await fetch('/getMovies');
+   //  let parsedMovieData = await movieData.json();
+
+//     let movieContar = document.getElementById('detailsbody');
+//     let content = '';
+
+//     for (let i = 0; i < parsedMovieData.length; i++) {
+//       content += `
+            
+            
+//       <div class="deatil_body" onclick="showMovieDetails(${parsedMovieData[i].id}")>
+//          <img src="../images/ozler.jpg">
+//           <h5 class="card-title">${parsedMovieData[i].title}</h5>
+//           <h6 class="card-genre">${parsedMovieData[i].genre}</h6>
+//           <h6 class="card-director">${parsedMovieData[i].director}</h6>
+//          <a href="details.html">Details</a>
+//       </div>
+  
+// `;
+//     }
+//     movieContar.innerHTML = content;
+// if(parsedMovieData.id===_id){
+  
+// }
+}

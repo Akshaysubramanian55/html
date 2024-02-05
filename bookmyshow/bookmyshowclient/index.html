@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book My Show</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="bookmyshow.css">
 </head>
+
 <body>
-    <div>
+    <div id="topper">
         <nav>
             <div class="container">
                 <img src="../images/bookmyshow.png" alt="logo" id="bookmyshowimg">
                 <img src="../images/icons8-search-50 (3).png" alt="search" id="search">
-                <input type="text" name="myinput" id="myinput" placeholder="Search for Movies,Events,Plays,Sports and Activities">
-               <select name="dropdown" id="dropdown">
-                <option value="Kochi">Kochi</option>
-               </select>
-               <button id="addbutton"><a href="add_cinema.html"> Add Film</a> </button>
-                <button id="mybutton">Sign In</button>
+                <input type="text" name="myinput" id="myinput"
+                    placeholder="Search for Movies,Events,Plays,Sports and Activities">
+                <select name="dropdown" id="dropdown">
+                    <option value="Kochi">Kochi</option>
+                </select>
+                <button id="addbutton"><a href="add_cinema.html"> Add</a> </button>
+                <button id="mybutton">Sign</button>
                 <img src="../images/icons8-menu-50 (2).png" alt="menu" id="menu">
             </div>
             <div class="list_container">
-                <div>
+                <div class="list_left">
                     <ul>
                         <li>Movies</li>
                         <li>Stream</li>
@@ -40,23 +44,96 @@
                 </div>
             </div>
         </nav>
-    </div >
-   
+    </div>
+
+
+    <div id="corosal">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class=" w-100" src="../images/aquaman.avif" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class=" w-100" src="../images/testtt.avif" alt="Second slide">
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
     <div id="movie_container">
-       
+
         <div class="card">
+            <h4>Recomended Movies</h4>
             
             <div id="card_body">
-                <h5 class="card_title"></h5>
-                <p class="card_text"></p>
-                <button></button>
-                <button></button>
-                <button></button>
+
             </div>
         </div>
 
 
+
+
+    </div>
+
+    <div id="imageee">
+        <img src="../images/bookmyyy.avif" alt="">
+    </div>
+
+    <div class="footer">
+        <div>
+            <h5>Movies Now Showing In Kochi</h5>
+            <div class="movie-list">
+                <ul>
+                    <li>Malaikottayil Vaaliban</li>
+                    <li>Abraham Ozler</li>
+                    <li>Salaar</li>
+                    <li>Fighter</li>
+                    <li>LLB</li>
+                    <li>Devil(2024)</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h5>UpComing Movies in Kochi</h5>
+            <div class="upcoming">
+                <ul>
+                    <li>Yatra 2</li>
+                    <li>Guardian Angel (2024)</li>
+                    <li>Delivery Boy</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h5>Movies By Genre</h5>
+            <div class="genre_list">
+                <ul>
+                    <li>Crime Thriller</li>
+                    <li>Romantic</li>
+                    <li>Action</li>
+                    <li>Fantasy</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 </body>
 <script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </html>
