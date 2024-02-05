@@ -23,7 +23,7 @@ let schema =new mongoose.Schema({
     type:String,
     required:true
   },
-  gerner:{
+  genre:{
     type:String,
     required:true,
    
