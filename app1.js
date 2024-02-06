@@ -2,8 +2,9 @@ const express =require('express');
 const app= express();
 const mongoose=require('mongoose');
 const dotenv =require('dotenv');
-const multer=require('multer');
-const path=require('path');
+const fs = require('fs');
+const path = require('path');
+
 const error=require('mongoose/lib/error');
 dotenv.config();
 port=process.env.PORT;
@@ -44,31 +45,53 @@ let schema =new mongoose.Schema({
 const model=mongoose.model("users",schema);
 
 
-app.post('/submit',async(req,res)=>{
-    let data=req.body;
-    console.log("data: ",data);
+app.post('/submit', async (req, res) => {
+  let { name, email, password, base64Image } = req.body;
 
-    //save to database
+  // Check if all required fields are present
+  if (!name || !email || !password || !base64Image) {
+      return res.status(400).send("All fields are required");
+  }
 
-    const isUserExist =await model.findOne({email:data.email});
-        console.log("isUserExist : ",isUserExist);
+  // Check if the user already exists
+  const isUserExist = await model.findOne({ email: email });
+  if (isUserExist) {
+      return res.status(400).send("User already exists");
+  }
 
-        if(isUserExist){
-            res.status(400).send("user already exists");
-            return;
-        }
+  // Save the image to the server's file system
+  const uploadDir = path.join(__dirname, 'uploads');
+  if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir);
+  }
 
-    await model.create(data)
-    .then((message)=>{
-     console.log("Document inserted successfully");
-     res.status(201).send("success");
-    })
-    .catch((error)=>{
-        console.log("Document insertion failed");
-        res.status(400).send("failed");
-    })
+  // Convert base64 string to buffer
+  const imageBuffer = Buffer.from(base64Image, 'base64');
 
-})
+  // Generate a unique filename (you may use a different approach)
+  const fileName = `${Date.now()}.png`;
+
+  // Write buffer to file
+  const filePath = path.join(uploadDir, fileName);
+  fs.writeFileSync(filePath, imageBuffer);
+
+  // Save user data (including image path) to MongoDB
+  try {
+      await model.create({
+          name: name,
+          email: email,
+          password: password,
+          image: filePath // Save the file path to the image in the database
+      });
+      console.log("Document inserted successfully");
+      res.status(201).send("Success");
+  } catch (error) {
+      console.error("Document insertion failed:", error);
+      res.status(400).send("Failed to insert document");
+  }
+});
+
+
 
 app.get('/getData',async(req,res)=>{
 

@@ -13,7 +13,7 @@ async function submitform(){
   if(imageInput.files && imageInput.files[0]){
    const reader =new FileReader();
 
-   reader.onload=function(e){
+   reader.onload=async function(e){
       const base64Image=e.target.result;
       console.log("base64Image: ",base64Image);
 
@@ -26,7 +26,7 @@ async function submitform(){
 
       let json_data=JSON.stringify(data);
       try {
-         let response =  fetch('/submit', {
+         let response = await fetch('/submit', {
              method: "POST",
              headers: {
                  "Content-Type": "application/json",
@@ -34,7 +34,7 @@ async function submitform(){
              body: json_data,
          });
 
-         let parsed_response =  response.text();
+         let parsed_response = await response.text();
 
          if (parsed_response === "success") {
              alert("Submitted successfully");
@@ -49,7 +49,6 @@ async function submitform(){
 
  reader.readAsDataURL(imageInput.files[0]);
 }
-   
 }
 
 
