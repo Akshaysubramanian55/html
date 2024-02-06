@@ -1,17 +1,17 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-
+const multer = require('multer');
 const mongoose=require('mongoose');
-
+const path = require('path');
 const error=require('mongoose/lib/error');
 dotenv.config();
-const path = require('path');
+
 port=process.env.PORT;
 
 
 app.use(express.static(__dirname+"/bookmyshowclient"));
-
+app.use(express.static(path.join(__dirname, 'image')));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(express.json());
@@ -42,6 +42,8 @@ let schema =new mongoose.Schema({
 
 const model=mongoose.model("cinema",schema);
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 app.post('/submit',async(req,res)=>{
     let data=req.body;
@@ -57,7 +59,12 @@ app.post('/submit',async(req,res)=>{
             return;
         }
 
-    await model.create(data)
+        const result = await model.insertOne({
+            title: req.body.title,
+            genre:req.body.genre,
+            director:req.body.director,
+            image: req.file.buffer.toString('base64')
+        })
     .then((message)=>{
      console.log("Document inserted successfully");
      res.status(201).send("success");

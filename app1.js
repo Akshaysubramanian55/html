@@ -2,6 +2,8 @@ const express =require('express');
 const app= express();
 const mongoose=require('mongoose');
 const dotenv =require('dotenv');
+const multer=require('multer');
+const path=require('path');
 const error=require('mongoose/lib/error');
 dotenv.config();
 port=process.env.PORT;
@@ -11,6 +13,7 @@ app.use(express.static(__dirname+"/client"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.text());
+
 
 
 //schema
@@ -28,6 +31,10 @@ let schema =new mongoose.Schema({
     type:String,
     required:true,
   },
+  image:{
+    type:String,
+    required:true,
+  }
 })
 
 

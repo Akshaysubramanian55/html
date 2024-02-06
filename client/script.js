@@ -8,28 +8,48 @@ async function submitform(){
    let password=document.getElementById('password').value;
    console.log("password : ",password);
 
-   let data={
-      name,
-      email,
-      password,
-   }
-   let json_data=JSON.stringify(data);
-   let response= await fetch('/submit',{
-     "method":"POST",
-     "headers":{
-      "Content-Type":"application/json",
-     },
-     "body":json_data,
+  let imageInput=document.getElementById('image');
 
-   });
+  if(imageInput.files && imageInput.files[0]){
+   const reader =new FileReader();
 
-   let parsed_response = await response.text();
+   reader.onload=function(e){
+      const base64Image=e.target.result;
+      console.log("base64Image: ",base64Image);
 
-   if (parsed_response==="success"){
-      alert("submitted successfully");
-   }else{
-      alert("submition failed");
-   }
+      let data={
+         name,
+         email,
+         password,
+         base64Image,
+      }
+
+      let json_data=JSON.stringify(data);
+      try {
+         let response =  fetch('/submit', {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json",
+             },
+             body: json_data,
+         });
+
+         let parsed_response =  response.text();
+
+         if (parsed_response === "success") {
+             alert("Submitted successfully");
+         } else {
+             alert("Submission failed");
+         }
+     } catch (error) {
+         console.error("Error:", error);
+         alert("An error occurred while submitting the form");
+     }
+ }
+
+ reader.readAsDataURL(imageInput.files[0]);
+}
+   
 }
 
 
@@ -176,6 +196,7 @@ async function handleSave(id){
 
    let password=document.getElementById(`password-${id}`).value;
    console.log("password : ",password);
+
 
    let data ={
       id,

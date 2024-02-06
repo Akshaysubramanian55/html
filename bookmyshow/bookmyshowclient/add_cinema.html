@@ -12,8 +12,8 @@
 <body id="bodyy">
     <h1 class="heading">Movie Details</h1>
     <div class="add_container">
-       
-        <form action="submit" method="post" enctype="multipart/form-data">
+
+        <form id="uploadForm" enctype="multipart/form-data" >
 
             <div>
                 <label for="title">Enter the Movie Name</label>
@@ -27,9 +27,14 @@
                 <label for="director">Enter the Director Name </label>
                 <input type="text" name="director" id="director" placeholder="Enter the name of the director">
             </div>
-           
+
             <div>
-                <button type="button"  onclick="submitform()" id="submit">Upload</button>
+                <input type="file" id="image" accept="image/*" required>
+                
+            </div>
+
+            <div>
+                <button type="button" onclick="submitform()" id="submit">submit</button>
             </div>
 
         </form>
