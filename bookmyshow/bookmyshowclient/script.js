@@ -8,27 +8,46 @@ async function submitform() {
    let director = document.getElementById('director').value;
    console.log("password : ", director);
 
-   let data = {
-      title,
-      genre,
-      director,
-   }
-   let json_data = JSON.stringify(data);
-   let response = await fetch('/submit', {
-      "method": "POST",
-      "headers": {
-         "Content-Type": "application/json",
-      },
-      "body": json_data,
+   let imageInput = document.getElementById('image');
 
-   });
+   if (imageInput.files && imageInput.files[0]) {
+      const reader = new FileReader();
 
-   let parsed_response = await response.text();
+      reader.onload = async function (e) {
+         const base64Image = e.target.result;
+         console.log("base64Image: ", base64Image);
 
-   if (parsed_response === "success") {
-      alert("submitted successfully");
-   } else {
-      alert("submition failed");
+         let data = {
+            title,
+            genre,
+            director,
+            base64Image,
+         }
+
+         let json_data = JSON.stringify(data);
+         try {
+            let response = await fetch('/submit', {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: json_data,
+            });
+
+            let parsed_response = await response.text();
+
+            if (parsed_response === "success") {
+               alert("Submitted successfully");
+            } else {
+               alert("Submission failed");
+            }
+         } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while submitting the form");
+         }
+      }
+
+      reader.readAsDataURL(imageInput.files[0]);
    }
 }
 
@@ -47,13 +66,14 @@ async function getMovieData() {
       content += `
             
             
-                <div class="card_body">
-                   <img src="../images/ozler.jpg">
-                    <h5 class="card-title" name="title" id="title-${parsedMovieData[i]._id}" value="${parsedMovieData[i].title}">${parsedMovieData[i].title}</h5>
-                    <h6 class="card-genre" id="genre-${parsedMovieData[i]._id}" value="${parsedMovieData[i].genre}">${parsedMovieData[i].genre}</h6>
-                    <h6 class="card-director" id="director-${parsedMovieData[i]._id}" value="${parsedMovieData[i].director}">${parsedMovieData[i].director}</h6>
-                   <a href="details.html " onclick="detailsmovie('${parsedMovieData[i]._id}')">Details</a>
-                </div>
+      <div class="card_body">
+      <img src="${parsedMovieData[i].image}" alt="User Image" style="max-width: 100px; max-height: 100px;">
+      <h5 class="card-title" name="title" id="title-${parsedMovieData[i]._id}">${parsedMovieData[i].title}</h5>
+      <h6 class="card-genre" id="genre-${parsedMovieData[i]._id}">${parsedMovieData[i].genre}</h6>
+      <h6 class="card-director" id="director-${parsedMovieData[i]._id}">${parsedMovieData[i].director}</h6>
+      <a href="details.html" onclick="detailsmovie('${parsedMovieData[i]._id}')">Details</a>
+       </div>
+  
             
         `;
    }
@@ -69,7 +89,7 @@ async function detailsmovie(id) {
 
    let _id = id;
    console.log("_id : ", _id)
-   
+
    let title = document.getElementById(`title-${id}`).value;
    console.log("name : ", title);
 
