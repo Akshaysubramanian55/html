@@ -1,0 +1,14 @@
+body{
+    background-color: brown;
+    height: 60vh;
+}
+.loginss{
+   margin: auto;
+}
+
+.loginss label,button{
+    display: block;
+}
+.loginss input{
+    margin-bottom: 10px;
+}

@@ -1,13 +1,13 @@
-import Login from "./Components/Login/Login"
-import SignUp from "./Components/Signup/Signup"
-
+import Login from "./Login"
+import SignUp from "./Signup"
+import Home from "./Home"
 
 function App() {
   return(
    <>
    
-   <Login/>
-   <SignUp/>
+   <Home/>
+  
   
    </>
   )
