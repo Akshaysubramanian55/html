@@ -1,0 +1,23 @@
+.logindataa {
+    background-color: brown;
+    height: 60vh;
+}
+
+.landinglogins {
+    margin: auto;
+}
+
+.landinglogins label,
+button {
+    display: block;
+}
+
+.landinglogins input {
+    margin-bottom: 10px;
+}
+
+.centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
