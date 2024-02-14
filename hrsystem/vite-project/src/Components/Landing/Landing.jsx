@@ -1,15 +1,13 @@
 import Landingnavbar from "./Landingnavbar/Landingnavbar";
 import Landingfooter from "./Landingfooter/Landingfooter";
-import './Landing.css'
+import Login from "../Login/Login";
+
 
 function Landingpage(){
     return(
 <>
     <Landingnavbar/>
-    <div className="LandingLogin">
-    <button>Login</button>
-    </div>
-    
+    <Login/>
     <Landingfooter/>
     </>
     )
