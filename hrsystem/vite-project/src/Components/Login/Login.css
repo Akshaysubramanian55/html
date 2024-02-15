@@ -21,4 +21,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+.centre button:hover{
+    background-color: red;
 }

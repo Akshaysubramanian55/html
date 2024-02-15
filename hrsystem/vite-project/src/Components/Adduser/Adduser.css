@@ -1,8 +1,9 @@
-.adddetails{
-    display: flex;
-  
-   
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 .adddetails,label{
     display: block;
     padding: 20px 20px 0px 20px;
@@ -11,6 +12,6 @@
     background-color: aqua;
     height:80vh;
 }
-.adddetails,button{
+.adddetails button{
     margin-top: 10px;
 }

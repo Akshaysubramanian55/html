@@ -6,7 +6,12 @@
 // import Login from "../components/Login/Login"
 // import Login1 from "../components/Login/Login1"
 // import Controlled from "../components/Controlledanduncontrolled/Controlled"
-import Uncontrolled from "../components/Controlledanduncontrolled/Uncontrolled"
+// import Uncontrolled from "../components/Controlledanduncontrolled/Uncontrolled"
+// import MyComponentWithUpperCase from "./HigherOrderComponent/MyComponentWithUpperCase"
+// import MyPureComponent from "./PureComponent/MyPureComponent"
+// import MyPureComponent1 from "./PureComponent/PureComponent1"
+import BasicRouting from "./router/BasicRouting"
+
 
 function App() {
  return(
@@ -19,7 +24,11 @@ function App() {
   {/* <Login/> */}
   {/* <Login1/> */}
   {/* <Controlled/> */}
-  <Uncontrolled/>
+  {/* <Uncontrolled/> */}
+  {/* <MyComponentWithUpperCase text={"hello world"}/> */}
+  {/* <MyPureComponent message={"this is Purecomponent "}/> */}
+  {/* <MyPureComponent1/> */}
+  <BasicRouting/>
   </>
  )
 }

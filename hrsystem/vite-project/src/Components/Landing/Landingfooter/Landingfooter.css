@@ -2,3 +2,12 @@ footer{
     color: white;
     background-color: black;
 }
+.about{
+    padding-top: 20px;
+}
+.below{
+    padding-bottom: 10px;
+}
+.copyright{
+    padding-top: 10px;
+}
