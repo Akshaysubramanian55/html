@@ -10,7 +10,7 @@ function Nav(){
                 <nav>
                     <ul>
                         <li><Link to={'/home'}>Home</Link> </li>
-                        <li><Link to={'/about'}>About</Link> </li>
+                        <li><Link to={'/about/john'}>About</Link> </li>
                     </ul>
                 </nav>
             </div>

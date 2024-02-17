@@ -11,8 +11,8 @@
 // import MyPureComponent from "./PureComponent/MyPureComponent"
 // import MyPureComponent1 from "./PureComponent/PureComponent1"
 // import BasicRouting from "./router/BasicRouting"
-// import BasicRouting1 from "./router/BasicRouting1"
-import NestedRouting from "./NestedRouting/NestedRouting"
+import BasicRouting1 from "./router/BasicRouting1"
+// import NestedRouting from "./NestedRouting/NestedRouting"
 
 
 function App() {
@@ -31,8 +31,8 @@ function App() {
   {/* <MyPureComponent message={"this is Purecomponent "}/> */}
   {/* <MyPureComponent1/> */}
   {/* <BasicRouting/> */}
-  {/* <BasicRouting1/> */}
-  <NestedRouting/>
+  <BasicRouting1/>
+  {/* <NestedRouting/> */}
   </>
  )
 }

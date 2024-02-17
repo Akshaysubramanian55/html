@@ -62,9 +62,12 @@ async function getMovieData() {
    let movieContainer = document.getElementById('card_body');
    let content = '';
 
+   console.log("parseddata : ",parsedMovieData);
+
    for (let i = 0; i < parsedMovieData.length; i++) {
       content += `
-            
+         
+      
             
       <div class="card_body">
       <img src="${parsedMovieData[i].image}" alt="User Image" style="max-width: 100px; max-height: 100px;">

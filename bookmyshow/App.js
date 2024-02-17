@@ -71,7 +71,7 @@ app.post('/submit', async (req, res) => {
   
     // Save the image to the server's file system
   
-    const uploadDir = path.join(__dirname, 'uploads');
+    const uploadDir = path.join(__dirname, '/uploads');
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir);
     }
@@ -81,6 +81,9 @@ app.post('/submit', async (req, res) => {
     // Generate a unique filename (you may use a different approach)
     
     const fileName = `${Date.now()}.png`;
+
+    const relativePath = `/uploads/${fileName}`;
+
   
     // Write buffer to file
     const filePath = path.join(uploadDir, fileName);
@@ -92,7 +95,7 @@ app.post('/submit', async (req, res) => {
         title: title,
         genre: genre,
         director: director,
-        image: filePath // Save the file path to the image in the database
+        image: relativePath// Save the file path to the image in the database
       });
       console.log("Document inserted successfully");
       res.status(201).send("Success");
