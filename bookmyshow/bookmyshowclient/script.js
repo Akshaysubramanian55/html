@@ -70,7 +70,7 @@ async function getMovieData() {
       
             
       <div class="card_body">
-      <img src="${parsedMovieData[i].image}" alt="User Image" style="max-width: 100px; max-height: 100px;">
+      <img src="${parsedMovieData[i].image}" alt="User Image" style="width: 250px; height: 250px;">
       <h5 class="card-title" name="title" id="title-${parsedMovieData[i]._id}">${parsedMovieData[i].title}</h5>
       <h6 class="card-genre" id="genre-${parsedMovieData[i]._id}">${parsedMovieData[i].genre}</h6>
       <h6 class="card-director" id="director-${parsedMovieData[i]._id}">${parsedMovieData[i].director}</h6>

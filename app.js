@@ -5,8 +5,10 @@ const path =require('path');
 const fs=require('fs');
 dotenv.config();
 
+const { v4: uuidv4 } = require('uuid');
 
-app.use(express.static(__dirname+"/client"));
+
+app.use(express.static(__dirname+"/clientt"));
 app.use(express.json());
 
 app.get('/test',(req,res)=>{
@@ -15,6 +17,14 @@ app.get('/test',(req,res)=>{
 
 app.post('/submit',(req,res)=>{
     const body=req.body;
+
+
+    const id = uuidv4(); // Generate UUID
+
+    // Add id field to the entry
+    const entryWithId = { id, ...body };
+
+
 
     const folderpath ='./datas';
     const fileName='datas.json';
@@ -29,7 +39,7 @@ app.post('/submit',(req,res)=>{
     let dataArr=[];
 
     if(fileContent===""){
-        dataArr.push(body);
+        dataArr.push(entryWithId);
         let json_data=JSON.stringify(dataArr);
 
         fs.writeFileSync(filepath,json_data,(err)=>{
@@ -43,7 +53,7 @@ app.post('/submit',(req,res)=>{
     }else{
 
         let parsedFileContent=JSON.parse(fileContent);
-        parsedFileContent.push(body);
+        parsedFileContent.push(entryWithId);
 
         let json_data=JSON.stringify(parsedFileContent);
 
@@ -73,12 +83,8 @@ app.get('/getData',  (req, res) => {
     }
 })
 
-
-
-
-
-app.put('/editData', (req, res) => {
-    const editId = req.params.id;
+app.put('/editData/:id', (req, res) => {
+    const editId = req.params.id; // Correctly extracting id from route parameters
     const editData = req.body;
     
     const folderpath = './datas';
@@ -95,13 +101,21 @@ app.put('/editData', (req, res) => {
     if (fileContent !== '') {
         dataArr = JSON.parse(fileContent);
 
+        // Find the index of the entry to be edited
         const existingDataIndex = dataArr.findIndex(item => item.id === editId);
 
         if (existingDataIndex !== -1) {
-            // Replace existing data with new data
-            dataArr[existingDataIndex] = { id: editId, ...editData };
-            const updatedJsonData = JSON.stringify(dataArr);
+            // Create a new array with the updated entry
+            const updatedDataArr = dataArr.map(item => {
+                if (item.id === editId) {
+                    return { id: editId, ...editData }; // Update the entry
+                }
+                return item;
+            });
 
+            const updatedJsonData = JSON.stringify(updatedDataArr);
+
+            // Write the updated data to the file
             fs.writeFile(filePath, updatedJsonData, (err) => {
                 if (err) {
                     res.status(400).send('failed to update');
@@ -119,58 +133,42 @@ app.put('/editData', (req, res) => {
 
 
 
-
-app.delete('/deleteData',  (req, res) => {
-    
+app.delete('/deleteData/:id',  (req, res) => {
     let data = req.body;
     console.log("body", data);
 
-    const { id } = req.params;
+    const { id } = req.params; // Assuming email is used as a unique identifier
     const folderPath = './datas';
     const fileName = 'datas.json';
     const filePath = path.join(folderPath, fileName);
 
-
     if (!fs.existsSync(filePath)) {
         res.status(400).send('Data not found');
+        return;
     }
-    let fileContent =fs.readFileSync(filePath,"utf-8");
-    console.log("fileContent: ",fileContent);
 
-      
-  
-     
-      
-        
-      let dataArr = JSON.parse(fileContent);
-      console.log("dataARr: ",dataArr);
-  
-      const dataIndex = dataArr.findIndex(item => item.id == id);
-  
-      console.log("dataIndex: ",dataIndex)
-      if (dataIndex === -1) {
+    let fileContent = fs.readFileSync(filePath, "utf-8");
+    console.log("fileContent: ", fileContent);
+
+    let dataArr = JSON.parse(fileContent);
+    console.log("dataARr: ", dataArr);
+
+    const dataIndex = dataArr.findIndex(item => item.id === id); // Change id to email
+
+    console.log("dataIndex: ", dataIndex);
+    if (dataIndex === -1) {
         res.status(404).send("Data not found");
-      }else{
+        return;
+    } else {
         // Delete the specific item at the found index
-      dataArr.splice(dataIndex,1);
-  
-  
-      // Write the updated data (without the deleted item) back to the file
-       fs.writeFileSync(filePath, JSON.stringify(dataArr));
-  
-      res.status(200).send("success");
-      }
-  
-      
-      
-  
-     
-  });
-  
+        dataArr.splice(dataIndex, 1);
 
+        // Write the updated data (without the deleted item) back to the file
+        fs.writeFileSync(filePath, JSON.stringify(dataArr));
 
-
-
+        res.status(200).send("success");
+    }
+});
 
 
 
