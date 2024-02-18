@@ -30,10 +30,9 @@ function handleEdit(id){
    let _id=id;
    console.log("id : ",_id);
 
-   let name=document.getElementById(`name-${_id}`);
+   let name=document.getElementById(`name-${id}`);
    console.log("name : ",name);
    name.disabled=false;
-
    
 
 
@@ -43,7 +42,7 @@ async function handleSave(id){
    
 
    let name=document.getElementById(`name-${id}`).value;
-   console.log("edit : ",name);
+   console.log("name : ",name);
 
    
 

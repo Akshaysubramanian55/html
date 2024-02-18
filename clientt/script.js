@@ -8,20 +8,15 @@ async function submitform(){
    let password=document.getElementById('password').value;
    console.log("password : ",password);
 
-  let imageInput=document.getElementById('image');
+  
+ 
 
-  if(imageInput.files && imageInput.files[0]){
-   const reader =new FileReader();
-
-   reader.onload=async function(e){
-      const base64Image=e.target.result;
-      console.log("base64Image: ",base64Image);
-
+   
       let data={
          name,
          email,
          password,
-         base64Image,
+     
       }
 
       let json_data=JSON.stringify(data);
@@ -47,9 +42,8 @@ async function submitform(){
      }
  }
 
- reader.readAsDataURL(imageInput.files[0]);
-}
-}
+ 
+
 
 
 

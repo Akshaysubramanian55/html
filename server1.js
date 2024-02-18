@@ -19,7 +19,7 @@ app.post('/submit', async (req, res) => {
     let data = req.body;
     console.log("datas :", data);
 
-    const isUserExist =await collection.findOne({email:data.email});
+    const isUserExist =await collection.findOne({name:data.name});
         console.log("isUserExist : ",isUserExist);
 
         if(isUserExist){
@@ -64,7 +64,7 @@ app.put('/editData', async (req, res) => {
         
     }
 
-    const isUserExist =await collection.findOne({email:data.email});
+    const isUserExist =await collection.findOne({name:data.name});
     console.log("isUserExist : ",isUserExist);
 
     if(isUserExist){
