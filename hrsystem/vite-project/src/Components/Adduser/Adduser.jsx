@@ -13,7 +13,7 @@ return(
 
     <div className='adddata' >
           
-            <h2>Login</h2>
+            <h2>Add-User</h2>
             <form className='adddetails'>
                 <label htmlFor="name">Enter your UserName</label>
                 <input type="text" placeholder="Username" name='name' value={username} onChange={(e) => setUsername(e.target.value)} />
