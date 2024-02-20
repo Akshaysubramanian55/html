@@ -13,8 +13,9 @@
 // import BasicRouting from "./router/BasicRouting"
 // import BasicRouting1 from "./router/BasicRouting1"
 // import NestedRouting from "./NestedRouting/NestedRouting"
-import Parent from "./Hooks/Usecallback/Parent"
-
+// import Parent from "./Hooks/Usecallback/Parent"
+// import UseContextApp from "./Hooks/UseContext/UseContextApp"
+import UsecontextComponent from "./Hooks/UseContext/UseContextComponent"
 
 
 
@@ -36,7 +37,9 @@ function App() {
   {/* <BasicRouting/> */}
   {/* <BasicRouting1/> */}
   {/* <NestedRouting/> */}
-  <Parent/>
+  {/* <Parent/> */}
+  {/* <UseContextApp/> */}
+  <UsecontextComponent/>
   </>
  )
 }
