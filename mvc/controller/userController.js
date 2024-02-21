@@ -42,6 +42,7 @@ exports.createUser=async function (req,res){
         let response_obj ={
             name,
             email,
+            password,
         }
 
 
@@ -68,23 +69,32 @@ exports.createUser=async function (req,res){
     }
 }
 
-exports.getUserData=async function (req,res){
-    
-    
-        try {
-            
-            const usersList = await users.find();
-    
-            if (usersList.length > 0) {
-                res.status(200).send(usersList);
-            } else {
-                res.status(404).send("No users found");
-            }
-        } catch (error) {
-            console.error("Error fetching users:", error);
-            res.status(500).send("Data not Found");
+exports.getUserData=async function(req, res) {
+    try {
+        const allUsers = await users.find();
+        
+        if (allUsers) {
+            let response = success_function({
+                statusCode: 200,
+                data: allUsers,
+                message: "success",
+            });
+            res.status(response.statusCode).send(response);
+        } else {
+            let response = error_function({
+                statusCode: 404,
+                message: "No users found",
+            });
+            res.status(response.statusCode).send(response);
         }
+    } catch (error) {
+        let response = error_function({
+            statusCode: 500,
+            message: "Internal server error",
+        });
+        res.status(response.statusCode).send(response);
     }
+};
     
 
   

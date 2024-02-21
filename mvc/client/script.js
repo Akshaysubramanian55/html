@@ -42,7 +42,7 @@ async function getuserdata() {
    console.log("token : ", token);
 
 
-   let userData = await fetch('http://localhost:3100/getData', {
+   let userData = await fetch('http://localhost:3100/user', {
       method: "GET",
       headers: {
          'authorization': `Bearer ${token}`,

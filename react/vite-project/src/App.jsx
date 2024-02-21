@@ -15,9 +15,9 @@
 // import NestedRouting from "./NestedRouting/NestedRouting"
 // import Parent from "./Hooks/Usecallback/Parent"
 // import UseContextApp from "./Hooks/UseContext/UseContextApp"
-import UsecontextComponent from "./Hooks/UseContext/UseContextComponent"
-
-
+// import UsecontextComponent from "./Hooks/UseContext/UseContextComponent"
+// import Useeffectcomponent from "./Hooks/Useeffects/Useeffectcomponent"
+import Useeffectcomponent1 from "./Hooks/Useeffects/Useeffectcomponent1"
 
 function App() {
  return(
@@ -39,7 +39,9 @@ function App() {
   {/* <NestedRouting/> */}
   {/* <Parent/> */}
   {/* <UseContextApp/> */}
-  <UsecontextComponent/>
+  {/* <UsecontextComponent/> */}
+  {/* <Useeffectcomponent/> */}
+  <Useeffectcomponent1/>
   </>
  )
 }
