@@ -5,6 +5,8 @@ import MacbMacbookcontentook from './components/Macbook/Macbook'
 import Imacs from './components/Imac/Imacc/Imac'
 import Pod from './components/PodandWatch/PodandWatch/Pod'
 import Banner from './components/Banner/Banner'
+import Footer from './components/Footer/Footer'
+import Copyright from './components/Copyright/Copyright'
 import './App.css'
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
     <Imacs/>
     <Pod/>
     <Banner/>
+    <Footer/>
+    <Copyright/>
     </>
   )
 
